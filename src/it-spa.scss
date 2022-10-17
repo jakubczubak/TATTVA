@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+$warning: rgb(214, 162, 18);
+$info: rgb(75, 113, 227);
+$danger: #e7514f;
+$success: #37b068;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 200vh;
+  background: linear-gradient(45deg, #1cb5e0 0%, #199bbe 100%) no-repeat fixed;
+}
+
+body {
+  font-family: "Poppins", "Arial", sans-serif;
+}
+
+nav {
+  background: linear-gradient(45deg, #ffc107 0%, #f4b700 100%);
+
+  button,
+  .btn {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none !important;
+    font-size: 1rem;
+    outline: none;
+    padding: 0.5rem 1rem;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  .btn.btn-active {
+    background-color: #f4b700;
+    text-decoration: underline;
+  }
+}
+
+main {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 2rem 0;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      background-color: #1791b3;
+      box-shadow: #00576e 0 2px 8px 2px;
+      color: #fff;
+      padding: 1rem;
+
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        & > * + * {
+          margin-left: 1rem;
+        }
+      }
+
+      button,
+      .btn {
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+      }
+    }
+
+    li + li {
+      margin-top: 2rem;
+    }
+  }
+
+  article {
+    $bg-color-1: #fffcf2;
+    $bg-color-2: #fff6dd;
+
+    background: repeating-linear-gradient(
+      45deg,
+      $bg-color-1,
+      $bg-color-1 10px,
+      $bg-color-2 10px,
+      $bg-color-2 20px
+    );
+    box-shadow: #00576e 0 2px 8px 2px;
+    margin: 2em 1em;
+    padding: 1rem;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      background: #ddc47d;
+      color: white;
+      margin: 0;
+      padding: 1rem 0.5rem;
+    }
+  }
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+
+  .modal {
+    background-color: #fff;
+    position: relative;
+    width: 700px;
+    min-height: 250px;
+    padding: 30px 20px 20px 40px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .modal-title {
+      font-size: 23px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 10px 0;
+      color: $info;
+
+      &.danger {
+        color: $danger;
+      }
+      &.warning {
+        color: $warning;
+      }
+      &.success {
+        color: $success;
+      }
+    }
+
+    .modal-description {
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    .modal-buttons button {
+      font-size: 18px;
+      letter-spacing: 2px;
+      padding: 10px;
+      width: 130px;
+      margin-top: 25px;
+      margin-right: 20px;
+      border-radius: 8px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .modal-buttons button:hover {
+      opacity: 80%;
+    }
+
+    .modal-accept {
+      background-color: $success;
+    }
+
+    .modal-decline {
+      background-color: $danger;
+    }
+
+    .modal-close-icon {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: gray;
+      }
+    }
+  }
+}
