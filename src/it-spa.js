@@ -3,12 +3,13 @@ import "./it-spa.scss";
 
 import { Home } from "./views/Home";
 import { Nav } from "./navigation/Nav"; // pamietaj o dodaniu importow!
-
+import { Date } from "./views/Date";
 const main = document.querySelector("main");
 
 // na start podczepiamy nawigacje
 main.before(Nav());
 // ...oraz widok Home zeby nie bylo pustej strony
+main.append(Date());
 main.append(Home());
 
 document.body.addEventListener("navigate", (event) => {
