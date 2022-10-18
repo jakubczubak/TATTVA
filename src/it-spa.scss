@@ -33,6 +33,7 @@ nav {
     font-size: 1rem;
     outline: none;
     padding: 0.5rem 1rem;
+    cursor: pointer;
 
     &:active,
     &:focus,
@@ -124,7 +125,7 @@ main {
 }
 
 .modal-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -171,7 +172,7 @@ main {
       font-size: 18px;
       letter-spacing: 2px;
       padding: 10px;
-      width: 130px;
+      width: 200px;
       margin-top: 25px;
       margin-right: 20px;
       border-radius: 8px;

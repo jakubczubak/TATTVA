@@ -3,10 +3,26 @@
 // JSON.stringify
 // JSON.parse
 
+import { modalManger } from "../modal/modal-manager";
+
 const key = "IT_SPA_CART";
 
 export const cartManager = {
+
   addItem(item) {
+    
+    modalManger.createModal(
+      {
+        type: "info",
+        title: "You have added an item to your cart!",
+        description: `1x ${item.name}`,
+        accept_btn: "Keep shopping",
+        decline_btn: "Go to cart",
+      },
+      modalManger.keepShoping,
+      modalManger.goToCart
+    );
+
     const cart = localStorage.getItem(key);
 
     if (cart === null) {
