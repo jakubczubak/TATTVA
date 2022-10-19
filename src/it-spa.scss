@@ -209,3 +209,108 @@ main {
     }
   }
 }
+
+.date-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  background-color: #fff;
+  margin: 20px 50px;
+  padding: 50px 40px 40px 40px;
+  border-radius: 40px;
+
+  .date-check-in {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+
+    header {
+      position: absolute;
+      top: -18px;
+      left: 0;
+      color: rgba(30, 30, 30, 0.6);
+      font-size: 14px;
+    }
+
+    input {
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .date-nights {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+
+    .date-nights-img {
+      cursor: pointer;
+    }
+
+    .date-nights-moon-img {
+      position: absolute;
+      top: -25px;
+      left: 6px;
+    }
+  }
+
+  .date-check-out {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+
+    header {
+      position: absolute;
+      top: -18px;
+      left: 0;
+      color: rgba(30, 30, 30, 0.6);
+      font-size: 14px;
+    }
+  }
+
+  .date-guest {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+
+    .date-guest-img {
+      cursor: pointer;
+    }
+
+    header {
+      position: absolute;
+      top: -18px;
+      left: 0;
+      color: rgba(30, 30, 30, 0.6);
+      font-size: 14px;
+    }
+  }
+  .date-search-btn-container {
+    display: flex;
+
+    .date-search-btn {
+      border-radius: 16px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      background: #753d6d;
+      padding: 10px 40px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      font-size: 18px;
+      border: none;
+
+      &:hover {
+        opacity: 90%;
+      }
+    }
+  }
+}

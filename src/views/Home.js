@@ -1,4 +1,6 @@
 // Home.js
+import { Date } from "./Date";
+
 export function Home() {
   const section = document.createElement("section");
   const image = document.createElement("img");
@@ -11,7 +13,7 @@ export function Home() {
     <p>Witaj w IT SPA. Każdy programista lubi u nas odpoczywać.</p>
   `;
 
-  section.append(image);
+  section.append(Date(), image);
 
   return section;
 }
