@@ -1,4 +1,5 @@
 import { RoomsList } from "../views/RoomsList";
+import { DateDataPicker } from "./DateDataPicker";
 
 export function Date() {
   const dateContainer = document.createElement("div");
@@ -40,8 +41,11 @@ export function Date() {
       </div>
     `;
 
-  const searchRoom = () => {
 
+
+  const searchBtn = dateContainer.querySelector(".date-search-btn");
+
+  searchBtn.addEventListener("click", () => {
     //zebrać wszyzstkie dane i je wypisac w konsoli
     
     const navigateEvent = new CustomEvent("navigate", {
@@ -49,11 +53,50 @@ export function Date() {
     });
 
     document.body.dispatchEvent(navigateEvent);
-  };
+  });
 
-  const searchBtn = dateContainer.querySelector(".date-search-btn");
 
-  searchBtn.addEventListener("click", searchRoom);
+  const dateNightsBtn = dateContainer.querySelector('.date-nights-img');
+
+  dateNightsBtn.addEventListener('click', () => {
+    
+    const dataPicker = document.querySelector(".date-data-picker-container");
+
+    if(!dataPicker){
+      const image = document.createElement("img");
+      image.className= 'date-picker-image'
+      image.alt = 'Night icon';
+      image.src = require("../assets/Moon_alt_light.svg");
+  
+      dateContainer.querySelector('.date-nights').append( DateDataPicker('Night'));
+  
+      document.querySelector('.date-data-picker-container').focus();
+      dateContainer.querySelector('.date-picker').prepend( image );
+    }
+  })
+
+
+  const dateGuestBtn = dateContainer.querySelector('.date-guest-img');
+
+  dateGuestBtn.addEventListener('click', () => {
+
+    const dataPicker = document.querySelector(".date-data-picker-container");
+
+    if(!dataPicker){
+      const image = document.createElement("img");
+      image.className= 'date-picker-image'
+      image.alt = 'Guest icon';
+      image.src = require("../assets/User_duotone_line.svg");
+  
+  
+      dateContainer.querySelector('.date-guest').append( DateDataPicker('Guest') );
+      document.querySelector('.date-data-picker-container').focus();
+      dateContainer.querySelector('.date-picker').prepend( image );
+    }
+
+ 
+  })
+
 
   return dateContainer;
 }
