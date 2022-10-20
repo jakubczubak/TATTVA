@@ -216,7 +216,7 @@ main {
   gap: 20px;
   background-color: #fff;
   margin: 20px 50px;
-  padding: 50px 40px 40px 40px;
+  padding: 60px 40px 40px 40px;
   border-radius: 40px;
 
   .date-check-in {
@@ -310,6 +310,49 @@ main {
 
       &:hover {
         opacity: 90%;
+      }
+    }
+  }
+
+}
+
+.date-picker-container{
+  width: 250px;
+  height: 120px;
+  padding: 16px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  .header{
+    color: rgba(30, 30, 30, 0.6);
+    font-size: 16px;
+    border-bottom: 1px solid rgba(30, 30, 30, 0.6);
+    padding-bottom: 4px;
+ 
+  }
+  
+  .date-picker{
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .date-picker-plus-icon{
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+
+      &:hover{
+        scale: 1.1;
+      }
+    }
+
+    .date-picker-minus-icon{
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+
+      &:hover{
+        scale: 1.1;
       }
     }
   }
