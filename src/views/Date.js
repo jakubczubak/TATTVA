@@ -1,5 +1,6 @@
 import { RoomsList } from "../views/RoomsList";
-import { DateDataPicker } from "./DateDataPicker";
+import { NumberOfNights } from "./NumberOfNights";
+import { NumberOfGuest } from "./NumberOfGuest";
 
 export function Date() {
   const dateContainer = document.createElement("div");
@@ -41,13 +42,11 @@ export function Date() {
       </div>
     `;
 
-
-
   const searchBtn = dateContainer.querySelector(".date-search-btn");
 
   searchBtn.addEventListener("click", () => {
     //zebrać wszyzstkie dane i je wypisac w konsoli
-    
+
     const navigateEvent = new CustomEvent("navigate", {
       detail: () => RoomsList(),
     });
@@ -55,48 +54,28 @@ export function Date() {
     document.body.dispatchEvent(navigateEvent);
   });
 
+  const dateNightsBtn = dateContainer.querySelector(".date-nights-img");
 
-  const dateNightsBtn = dateContainer.querySelector('.date-nights-img');
-
-  dateNightsBtn.addEventListener('click', () => {
-    
+  dateNightsBtn.addEventListener("click", () => {
     const dataPicker = document.querySelector(".date-data-picker-container");
 
-    if(!dataPicker){
-      const image = document.createElement("img");
-      image.className= 'date-picker-image'
-      image.alt = 'Night icon';
-      image.src = require("../assets/Moon_alt_light.svg");
-  
-      dateContainer.querySelector('.date-nights').append( DateDataPicker('Night'));
-  
-      document.querySelector('.date-data-picker-container').focus();
-      dateContainer.querySelector('.date-picker').prepend( image );
+    if (!dataPicker) {
+      dateContainer.querySelector(".date-nights").append(NumberOfNights());
+
+      document.querySelector(".date-data-picker").focus();
     }
-  })
+  });
 
+  const dateGuestBtn = dateContainer.querySelector(".date-guest-img");
 
-  const dateGuestBtn = dateContainer.querySelector('.date-guest-img');
-
-  dateGuestBtn.addEventListener('click', () => {
-
+  dateGuestBtn.addEventListener("click", () => {
     const dataPicker = document.querySelector(".date-data-picker-container");
 
-    if(!dataPicker){
-      const image = document.createElement("img");
-      image.className= 'date-picker-image'
-      image.alt = 'Guest icon';
-      image.src = require("../assets/User_duotone_line.svg");
-  
-  
-      dateContainer.querySelector('.date-guest').append( DateDataPicker('Guest') );
-      document.querySelector('.date-data-picker-container').focus();
-      dateContainer.querySelector('.date-picker').prepend( image );
+    if (!dataPicker) {
+      dateContainer.querySelector(".date-guest").append(NumberOfGuest());
+      document.querySelector(".date-data-picker").focus();
     }
-
- 
-  })
-
+  });
 
   return dateContainer;
 }

@@ -313,55 +313,57 @@ main {
       }
     }
   }
-
 }
 
-.date-data-picker-container{
+.date-data-picker-container {
   position: absolute;
-  top: 60px;
-  width: 250px;
-  padding: 8px 24px;
-  border-radius: 20px;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  &:focus{
-    outline: none;
-  }
+  .date-data-picker {
+    position: absolute;
+    top: 40px;
+    width: 250px;
+    padding: 8px 24px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  .date-data-picker-header{
-    color: rgba(30, 30, 30, 0.6);
-    font-size: 16px;
-    border-bottom: 1px solid rgba(30, 30, 30, 0.6);
- 
-  }
-  
-  .date-picker{
-    margin-top: 8px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .date-picker-image {
-      position: relative;
-      top: -2px;
+    &:focus {
+      outline: none;
     }
 
-    .date-picker-plus-icon{
-      cursor: pointer;
-      transition: all 0.1s ease-in-out;
+    .date-data-picker-header {
+      color: rgba(30, 30, 30, 0.6);
+      font-size: 16px;
+      border-bottom: 1px solid rgba(30, 30, 30, 0.6);
+    }
 
-      &:hover{
-        scale: 1.1;
+    .date-picker {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .date-picker-image {
+        position: relative;
+        top: -2px;
       }
-    }
 
-    .date-picker-minus-icon{
-      cursor: pointer;
-      transition: all 0.1s ease-in-out;
+      .date-picker-plus-icon {
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
 
-      &:hover{
-        scale: 1.1;
+        &:hover {
+          scale: 1.1;
+        }
+      }
+
+      .date-picker-minus-icon {
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          scale: 1.1;
+        }
       }
     }
   }

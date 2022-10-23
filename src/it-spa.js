@@ -3,7 +3,7 @@ import "./it-spa.scss";
 
 import { Home } from "./views/Home";
 import { Nav } from "./navigation/Nav"; // pamietaj o dodaniu importow!
-import { DateDataPicker } from "./views/DateDataPicker";
+import { DateDataPicker } from "./views/NumberOfNights";
 
 const main = document.querySelector("main");
 
@@ -13,7 +13,6 @@ main.before(Nav());
 
 main.append(Home());
 
-
 document.body.addEventListener("navigate", (event) => {
   // ROWNOZNACZNE Z: const Component = event.detail;
   const { detail: Component } = event;
@@ -21,4 +20,3 @@ document.body.addEventListener("navigate", (event) => {
   main.innerHTML = "";
   main.append(Component());
 });
-

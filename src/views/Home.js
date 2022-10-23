@@ -1,6 +1,6 @@
 // Home.js
 import { Date } from "./Date";
-import { DateDataPicker } from "./DateDataPicker";
+import { DateDataPicker } from "./NumberOfNights";
 
 export function Home() {
   const section = document.createElement("section");
