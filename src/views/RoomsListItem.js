@@ -1,22 +1,21 @@
 // RoomsListItem.js
-import { cartManager } from '../cart/cart-manager';
-import { Button } from '../common/Button';
-import { RoomDetails } from './RoomDetails';
+import { cartManager } from "../cart/cart-manager";
+import { Button } from "../common/Button";
+import { RoomDetails } from "./RoomDetails";
 
 // wytwarza element <li> prezentujacy pojedynczy pokoj
 export function RoomsListItem(room) {
+  const li = document.createElement("li");
 
-  const li = document.createElement('li');
-
-  const readMoreButton = Button('Read More', () => {
-    const navigateEvent = new CustomEvent('navigate', {
-      detail: () => RoomDetails(room.id)
+  const readMoreButton = Button("Read More", () => {
+    const navigateEvent = new CustomEvent("navigate", {
+      detail: () => RoomDetails(room.id),
     });
 
     document.body.dispatchEvent(navigateEvent);
   });
 
-  const addToCartButton = Button('Add To Cart', () => {
+  const addToCartButton = Button("Add To Cart", () => {
     cartManager.addItem(room);
   });
 
@@ -29,7 +28,7 @@ export function RoomsListItem(room) {
   `;
 
   // ROWNOZNACZNE Z: li.lastElementChild.append(readMeButton);
-  li.querySelector('footer').append(readMoreButton, addToCartButton);
+  li.querySelector("footer").append(readMoreButton, addToCartButton);
 
   return li;
 }

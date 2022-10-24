@@ -28,67 +28,60 @@ export function NumberOfNights(nightsNumber) {
     }
   });
 
-
-  document.addEventListener('mouseup', function(e) {
-    
-
+  document.addEventListener("mouseup", function (e) {
     try {
-      const container = document.getElementById('date-data-picker');
+      const container = document.getElementById("date-data-picker");
       if (!container.contains(e.target)) {
         container.parentElement.remove();
       }
     } catch (error) {
       //Do nothing
     }
-});
+  });
 
+  const nightPlusIcon = dateDataPickerContainer.querySelector(
+    ".date-picker-plus-icon"
+  );
 
+  nightPlusIcon.addEventListener("click", () => {
+    const numberOfNightElement =
+      dateDataPickerContainer.querySelector(".date-picker-days");
+    const numbersOfNights = document.querySelector(".date-nights-number");
 
-
-
-  const nightPlusIcon = dateDataPickerContainer.querySelector('.date-picker-plus-icon');
-
-  nightPlusIcon.addEventListener('click', () => {
-
-    const numberOfNightElement = dateDataPickerContainer.querySelector('.date-picker-days');
-    const numbersOfNights = document.querySelector('.date-nights-number');
-
-    if(parseInt(numberOfNightElement.innerText) == 14){
-
-    }else{
+    if (parseInt(numberOfNightElement.innerText) == 14) {
+      //Do nothing
+    } else {
       let numberOfNight = parseInt(numberOfNightElement.innerText) + 1;
 
       numberOfNightElement.innerText = numberOfNight;
       numbersOfNights.innerText = numberOfNight;
-  
-      const dateContainer = document.querySelector('.date-container');
+
+      const dateContainer = document.querySelector(".date-container");
       setCheckOutDate(dateContainer);
     }
+  });
 
-  })
+  const nightMinusIcon = dateDataPickerContainer.querySelector(
+    ".date-picker-minus-icon"
+  );
 
+  nightMinusIcon.addEventListener("click", () => {
+    const numberOfNightElement =
+      dateDataPickerContainer.querySelector(".date-picker-days");
+    const numbersOfNights = document.querySelector(".date-nights-number");
 
-  const nightMinusIcon = dateDataPickerContainer.querySelector('.date-picker-minus-icon');
-
-  nightMinusIcon.addEventListener('click', () => {
-
-    const numberOfNightElement = dateDataPickerContainer.querySelector('.date-picker-days');
-    const numbersOfNights = document.querySelector('.date-nights-number');
-
-    if(parseInt(numberOfNightElement.innerText) == 1){
-
-    }else{
+    if (parseInt(numberOfNightElement.innerText) == 1) {
+      //Do nothing
+    } else {
       let numberOfNight = parseInt(numberOfNightElement.innerText) - 1;
 
       numberOfNightElement.innerText = numberOfNight;
       numbersOfNights.innerText = numberOfNight;
 
-      const dateContainer = document.querySelector('.date-container');
+      const dateContainer = document.querySelector(".date-container");
       setCheckOutDate(dateContainer);
-      
     }
-
-  })
+  });
 
   document.body.style.overflow = "hidden";
 
