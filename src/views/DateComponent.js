@@ -25,7 +25,7 @@ export function DateComponent() {
       <div class="date-check-out">
         <header>Check out</header>
         <img src=${require("../assets/Date_range_duotone_line.svg")} alt="Calendar" />
-        <input type='date' disabled></input>
+        <input type='date' readOnly></input>
       </div>
       <div class="date-guest">
         <header>Guest</header>
@@ -136,6 +136,12 @@ export function DateComponent() {
 
     checkInDate.setAttribute("max", currentDate);
   }
+
+  const checkInElement = dateContainer.querySelector(".date-check-in-input");
+
+  checkInElement.addEventListener("change", () => {
+    setCheckOutDate(dateContainer);
+  });
 
   setMaxCheckInDate();
 
