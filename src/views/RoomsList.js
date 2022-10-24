@@ -13,6 +13,7 @@ export function RoomsList() {
   fetch('http://localhost:3000/rooms')
     .then(response => response.json())
     .then(rooms => {
+      console.log(rooms);
       const ul = document.createElement('ul');
       const lis = rooms.map( room => RoomsListItem(room) );
 

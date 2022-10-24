@@ -266,6 +266,9 @@ main {
     align-items: center;
     gap: 5px;
     position: relative;
+    font-size: 16px;
+    font-family: "monospace", "Arial", sans-serif;
+
 
     header {
       position: absolute;
@@ -301,7 +304,7 @@ main {
       border-radius: 16px;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       background: #753d6d;
-      padding: 10px 40px;
+      padding: 10px 60px;
       color: #fff;
       cursor: pointer;
       transition: all 0.3s ease-in-out;

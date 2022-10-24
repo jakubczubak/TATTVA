@@ -4,7 +4,7 @@ export function NumberOfGuest() {
   dateDataPickerContainer.className = "date-data-picker-container";
 
   dateDataPickerContainer.innerHTML = `
-  <div class="date-data-picker" tabindex='0'>
+  <div id='date-data-picker' class="date-data-picker" tabindex='0'>
     <div class="date-data-picker-header">
     <p>Guests</p>
   </div>
@@ -25,6 +25,19 @@ export function NumberOfGuest() {
       document.body.style.overflow = "auto";
     }
   });
+
+  document.addEventListener('mouseup', function(e) {
+    
+
+    try {
+      const container = document.getElementById('date-data-picker');
+      if (!container.contains(e.target)) {
+        container.parentElement.remove();
+      }
+    } catch (error) {
+      //Do nothing
+    }
+});
 
   document.body.style.overflow = "hidden";
 

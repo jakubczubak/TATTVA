@@ -4,7 +4,7 @@ import { Button } from '../common/Button';
 import { RoomDetails } from './RoomDetails';
 
 // wytwarza element <li> prezentujacy pojedynczy pokoj
-export function gitRoomsListItem(room) {
+export function RoomsListItem(room) {
 
   const li = document.createElement('li');
 

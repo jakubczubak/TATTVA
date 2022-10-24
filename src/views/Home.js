@@ -1,6 +1,6 @@
 // Home.js
-import { Date } from "./Date";
-import { DateDataPicker } from "./NumberOfNights";
+import { DateComponent } from "./DateComponent";
+import { setCheckOutDate } from "./DateComponent";
 
 export function Home() {
   const section = document.createElement("section");
@@ -14,7 +14,7 @@ export function Home() {
     <p>Witaj w IT SPA. Każdy programista lubi u nas odpoczywać.</p>
   `;
 
-  section.append(Date(), image);
+  section.append(DateComponent(), image);
 
   return section;
 }
