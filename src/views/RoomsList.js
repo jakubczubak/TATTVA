@@ -16,7 +16,7 @@ export function RoomsList(guestNumber) {
       const ul = document.createElement("ul");
 
       if (guestNumber != null) {
-        const newRoomsList = rooms.filter((room) => room.guests <= guestNumber);
+        const newRoomsList = rooms.filter((room) => room.guests >= guestNumber);
         const lis = newRoomsList.map((room) => RoomsListItem(room));
         ul.append(...lis);
       } else {
