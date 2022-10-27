@@ -4,6 +4,7 @@ $warning: rgb(214, 162, 18);
 $info: rgb(75, 113, 227);
 $danger: #e7514f;
 $success: #37b068;
+$Violet : #753D6D;
 
 * {
   margin: 0;
@@ -14,7 +15,6 @@ $success: #37b068;
 html,
 body {
   min-height: 200vh;
-  background: linear-gradient(45deg, #1cb5e0 0%, #199bbe 100%) no-repeat fixed;
 }
 
 body {
@@ -22,7 +22,13 @@ body {
 }
 
 nav {
-  background: linear-gradient(45deg, #ffc107 0%, #f4b700 100%);
+  background: white;
+  text-align: right;
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 40px;
 
   button,
   .btn {
@@ -32,19 +38,47 @@ nav {
     box-shadow: none !important;
     font-size: 1rem;
     outline: none;
-    padding: 0.5rem 1rem;
     cursor: pointer;
+    padding: 8px 20px;
+    transition: 0.1s all ease-in-out;
+    margin: 10px;
 
     &:active,
     &:focus,
     &:hover {
-      background: transparent;
+      border-bottom: 1px solid $Violet;
     }
   }
 
   .btn.btn-active {
     background-color: #f4b700;
     text-decoration: underline;
+  }
+
+  .login{
+    border: 1px solid $Violet;
+    border-radius: 16px;
+    color: $Violet;
+    padding: 8px 30px;
+    transition: 0.1s all ease-in-out;
+
+
+    &:hover{
+      color: white;
+      background-color: $Violet;
+    }
+  }
+
+  .logo{
+    position: absolute;
+    left: 0;
+    top: -25px;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border: none;
+    }
   }
 }
 
@@ -120,6 +154,21 @@ main {
       color: white;
       margin: 0;
       padding: 1rem 0.5rem;
+    }
+  }
+
+  .home-container{
+    
+    .slide-container{
+      background-image: url('./assets/massage.jpg');
+      background-position: center;
+      height: 600px;
+      margin: 20px 40px 40px 40px;
+      border-radius: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
   }
 }
@@ -211,13 +260,16 @@ main {
 }
 
 .date-container {
+
   display: flex;
+  width: 90%;
   justify-content: space-around;
   gap: 20px;
   background-color: #fff;
-  margin: 20px 50px;
   padding: 60px 40px 40px 40px;
+  margin: 50px 0;
   border-radius: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   .date-check-in {
     display: flex;
