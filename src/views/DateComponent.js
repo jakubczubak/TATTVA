@@ -25,12 +25,13 @@ export function DateComponent() {
       <div class="date-check-out">
         <header>Check out</header>
         <img src=${require("../assets/Date_range_duotone_line.svg")} alt="Calendar" />
-        <p>Tue, 28 Jul 2021</p>
+        <input type='date' readOnly></input>
       </div>
       <div class="date-guest">
         <header>Guest</header>
         <img src=${require("../assets/User_duotone_line.svg")} alt="Calendar" />
-        <p>1 Guest</p>
+        <p class='date-guest-number'>1 </p>
+        <p>Guest</p>
         <img
           class="date-guest-img"
           src=${require("../assets/Expand_down_light.svg")}
@@ -47,8 +48,21 @@ export function DateComponent() {
   searchBtn.addEventListener("click", () => {
     //zebrać wszyzstkie dane i je wypisac w konsoli
 
+    const checkIn = dateContainer.querySelector(".date-check-in-input").value;
+    const checkOut = dateContainer.querySelector(".date-check-out input").value;
+    const guests = dateContainer.querySelector(".date-guest-number").innerText;
+
+    const reservation = {
+      checkIn: checkIn,
+      checkOut: checkOut,
+      guests: guests,
+    };
+
+    console.log("BOOKING INFO:");
+    console.log(reservation);
+
     const navigateEvent = new CustomEvent("navigate", {
-      detail: () => RoomsList(),
+      detail: () => RoomsList(guests),
     });
 
     document.body.dispatchEvent(navigateEvent);
@@ -60,8 +74,12 @@ export function DateComponent() {
     const dataPicker = document.querySelector(".date-data-picker-container");
 
     if (!dataPicker) {
-      const nightsNumber = parseInt(document.querySelector('.date-nights-number').innerText)
-      dateContainer.querySelector(".date-nights").append(NumberOfNights(nightsNumber));
+      const nightsNumber = parseInt(
+        document.querySelector(".date-nights-number").innerText
+      );
+      dateContainer
+        .querySelector(".date-nights")
+        .append(NumberOfNights(nightsNumber));
 
       document.querySelector(".date-data-picker").focus();
     }
@@ -73,15 +91,17 @@ export function DateComponent() {
     const dataPicker = document.querySelector(".date-data-picker-container");
 
     if (!dataPicker) {
-      dateContainer.querySelector(".date-guest").append(NumberOfGuest());
+      const guestsNumber = parseInt(
+        document.querySelector(".date-guest-number").innerText
+      );
+      dateContainer
+        .querySelector(".date-guest")
+        .append(NumberOfGuest(guestsNumber));
       document.querySelector(".date-data-picker").focus();
     }
   });
 
-
-
   function setMinCheckInDate() {
-
     const date = new Date();
 
     let day = date.getDate();
@@ -89,22 +109,20 @@ export function DateComponent() {
     let year = date.getFullYear();
 
     let currentDate = `${year}-${month}-${day}`;
-    const checkInDate = dateContainer.querySelector('.date-check-in-input');
-    
-    checkInDate.setAttribute('min', currentDate);
-    checkInDate.value = currentDate;
+    const checkInDate = dateContainer.querySelector(".date-check-in-input");
 
-    }
+    checkInDate.setAttribute("min", currentDate);
+    checkInDate.value = currentDate;
+  }
 
   setMinCheckInDate();
 
   function setMaxCheckInDate() {
-
-    Date.prototype.addDays = function(days) {
+    Date.prototype.addDays = function (days) {
       var date = new Date(this.valueOf());
       date.setDate(date.getDate() + days);
       return date;
-      }
+    };
 
     const date = new Date().addDays(365);
 
@@ -114,15 +132,18 @@ export function DateComponent() {
 
     let currentDate = `${year}-${month}-${day}`;
 
-    const checkInDate = dateContainer.querySelector('.date-check-in-input');
-    
-    checkInDate.setAttribute('max', currentDate);
+    const checkInDate = dateContainer.querySelector(".date-check-in-input");
 
+    checkInDate.setAttribute("max", currentDate);
+  }
 
-    }
+  const checkInElement = dateContainer.querySelector(".date-check-in-input");
+
+  checkInElement.addEventListener("change", () => {
+    setCheckOutDate(dateContainer);
+  });
 
   setMaxCheckInDate();
-
 
   setCheckOutDate(dateContainer);
 
@@ -130,27 +151,28 @@ export function DateComponent() {
 }
 
 export function setCheckOutDate(dateContainer) {
-
-  Date.prototype.addDays = function(days) {
+  Date.prototype.addDays = function (days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
-    }
+  };
 
-  const checkInDate = dateContainer.querySelector('.date-check-in-input');
-  const numbersOfNights = dateContainer.querySelector('.date-nights-number');
+  const checkInDate = dateContainer.querySelector(".date-check-in-input");
+  const numbersOfNights = dateContainer.querySelector(".date-nights-number");
 
   const date = new Date(checkInDate.value);
-  const updatedDate = date.addDays(parseInt(numbersOfNights.innerText))
+  const updatedDate = date.addDays(parseInt(numbersOfNights.innerText));
 
-  let day = updatedDate.getDate();
+  let day =
+    updatedDate.getDate() < 10
+      ? "0" + updatedDate.getDate()
+      : updatedDate.getDate();
   let month = updatedDate.getMonth() + 1;
   let year = updatedDate.getFullYear();
 
-  let currentDate = `${month} / ${day} / ${year}`;
+  let currentDate = `${year}-${month}-${day}`;
 
-  const checkOutDate = dateContainer.querySelector('.date-check-out p')
+  const checkOutDate = dateContainer.querySelector(".date-check-out input");
 
-  checkOutDate.innerText = currentDate;
+  checkOutDate.value = currentDate;
 }
-
