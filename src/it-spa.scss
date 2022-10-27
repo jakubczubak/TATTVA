@@ -4,7 +4,7 @@ $warning: rgb(214, 162, 18);
 $info: rgb(75, 113, 227);
 $danger: #e7514f;
 $success: #37b068;
-$Violet : #753D6D;
+$Violet: #753d6d;
 
 * {
   margin: 0;
@@ -55,21 +55,20 @@ nav {
     text-decoration: underline;
   }
 
-  .login{
+  .login {
     border: 1px solid $Violet;
     border-radius: 16px;
     color: $Violet;
     padding: 8px 30px;
     transition: 0.1s all ease-in-out;
 
-
-    &:hover{
+    &:hover {
       color: white;
       background-color: $Violet;
     }
   }
 
-  .logo{
+  .logo {
     position: absolute;
     left: 0;
     top: -25px;
@@ -157,11 +156,11 @@ main {
     }
   }
 
-  .home-container{
-    
-    .slide-container{
-      background-image: url('./assets/massage.jpg');
+  .home-container {
+    .slide-container {
+      background-image: url("./assets/massage.jpg");
       background-position: center;
+      background-size: cover;
       height: 600px;
       margin: 20px 40px 40px 40px;
       border-radius: 64px;
@@ -260,13 +259,12 @@ main {
 }
 
 .date-container {
-
   display: flex;
   width: 90%;
   justify-content: space-around;
   gap: 20px;
   background-color: #fff;
-  padding: 60px 40px 40px 40px;
+  padding: 50px 40px 40px 40px;
   margin: 50px 0;
   border-radius: 40px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
