@@ -3,9 +3,9 @@ import { RoomsListItem } from "./RoomsListItem";
 
 export function RoomsList(guestNumber) {
   const section = document.createElement("section");
+  section.classList.add('room-list');
 
   section.innerHTML = `
-    <h2>Rooms List</h2>
     <header>Loading...</header>
   `;
 

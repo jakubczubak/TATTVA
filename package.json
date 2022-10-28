@@ -17,6 +17,8 @@
     "sass": "^1.49.0"
   },
   "dependencies": {
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "lord-icon-element": "^4.0.0",
+    "lottie-web": "^5.9.6"
   }
 }
