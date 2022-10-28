@@ -1,17 +1,19 @@
 // RoomDetails.js
 export function RoomDetails(id) {
-  const section = document.createElement("section");
+  const roomDetailsContainer = document.createElement("div");
+  roomDetailsContainer.classList.add('room-details-container');
 
-  section.innerHTML = `
+  roomDetailsContainer.innerHTML = `
     <header>Loading...</header>
   `;
 
   fetch(`http://localhost:3000/rooms/${id}`)
     .then((response) => response.json())
     .then((room) => {
-      const paragraph = document.createElement("p");
+      const roomDetails = document.createElement("div");
+      roomDetails.classList.add('room-details')
 
-      paragraph.innerHTML = `
+      roomDetails.innerHTML = `
         <strong>Nazwa:</strong> ${room.name}
         <br/>
         <strong>Beds:</strong> ${room.beds}x🛏️
@@ -23,9 +25,12 @@ export function RoomDetails(id) {
         <strong>Price:</strong> ${room.price.toFixed(2)} zł
       `;
 
-      section.querySelector("header").remove();
-      section.append(paragraph);
+      roomDetailsContainer.querySelector("header").remove();
+      roomDetailsContainer.append(roomDetails);
     });
 
-  return section;
+
+    document.body.style.overflow = "hidden";
+
+  return roomDetailsContainer;
 }

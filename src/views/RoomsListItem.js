@@ -9,11 +9,9 @@ export function RoomsListItem(room) {
   li.classList.add('list-item');
 
   const readMoreButton = Button("Read More", () => {
-    const navigateEvent = new CustomEvent("navigate", {
-      detail: () => RoomDetails(room.id),
-    });
 
-    document.body.dispatchEvent(navigateEvent);
+    document.querySelector('.room-list').append(RoomDetails(room.id))
+    
   });
 
   const addToCartButton = Button("Book now", () => {

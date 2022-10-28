@@ -16,6 +16,7 @@ $Violet: #753d6d;
 html,
 body {
   background-color: #fff;
+
 }
 
 body {
@@ -256,6 +257,28 @@ line-height: 90px;
       }
       
     }
+  }
+
+  .room-details-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+
+  .room-details{
+    background-color: #fff;
+    position: relative;
+    width: 70%;
+    min-height: 800px;
+    padding: 30px 20px 20px 40px;
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
   }
 }
 
