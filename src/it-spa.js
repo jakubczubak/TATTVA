@@ -3,6 +3,7 @@ import "./it-spa.scss";
 
 import { Home } from "./views/Home";
 import { Nav } from "./navigation/Nav"; // pamietaj o dodaniu importow!
+import { Footer } from "./views/Footer.js";
 
 
 
@@ -15,6 +16,7 @@ main.before(Nav());
 
 main.append(Home());
 
+main.after(Footer());
 
 
 document.body.addEventListener("navigate", (event) => {

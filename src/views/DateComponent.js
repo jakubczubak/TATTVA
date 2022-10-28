@@ -82,7 +82,10 @@ export function DateComponent() {
         .append(NumberOfNights(nightsNumber));
 
       document.querySelector(".date-data-picker").focus();
+
+      document.body.style.overflow = "auto";
     }
+    
   });
 
   const dateGuestBtn = dateContainer.querySelector(".date-guest-img");
@@ -98,6 +101,7 @@ export function DateComponent() {
         .querySelector(".date-guest")
         .append(NumberOfGuest(guestsNumber));
       document.querySelector(".date-data-picker").focus();
+      document.body.style.overflow = "auto";
     }
   });
 
