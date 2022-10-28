@@ -3,7 +3,7 @@
   "rooms": [
     {
       "id": 1,
-      "name": "Family Apartment Comfort",
+      "name": "Single",
       "beds": 1,
       "guests": 1,
       "price": 170,
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "Family Apartment Comfort",
+      "name": "Double Comfort",
       "beds": 1,
       "guests": 2,
       "price": 240,
@@ -27,7 +27,7 @@
     },
     {
       "id": 4,
-      "name": "Family Apartment Comfort",
+      "name": "Superior",
       "beds": 2,
       "guests": 4,
       "price": 340,
