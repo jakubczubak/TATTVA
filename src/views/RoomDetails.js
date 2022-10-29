@@ -16,6 +16,7 @@ export function RoomDetails(id) {
     .then((room) => {
       const roomDetails = document.createElement("div");
       roomDetails.classList.add("room-details");
+      roomDetails.setAttribute("tabindex", 0);
 
       const addToCartButton = Button("Book now", () => {
         cartManager.addItem(room);
@@ -56,6 +57,24 @@ export function RoomDetails(id) {
 
       roomDetailsContainer.querySelector("header").remove();
       roomDetailsContainer.append(roomDetails);
+
+      roomDetails.focus();
+      roomDetails.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          const roomDetailsContainer = document.querySelector(
+            ".room-details-container"
+          );
+          roomDetailsContainer.remove();
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      roomDetailsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("room-details-container")) {
+          e.target.remove();
+          document.body.style.overflow = "auto";
+        }
+      });
     });
 
   document.body.style.overflow = "hidden";
