@@ -1,7 +1,11 @@
 // RoomDetails.js
+
+import { Button } from "../common/Button";
+import { cartManager } from "../cart/cart-manager";
+
 export function RoomDetails(id) {
   const roomDetailsContainer = document.createElement("div");
-  roomDetailsContainer.classList.add('room-details-container');
+  roomDetailsContainer.classList.add("room-details-container");
 
   roomDetailsContainer.innerHTML = `
     <header>Loading...</header>
@@ -11,26 +15,50 @@ export function RoomDetails(id) {
     .then((response) => response.json())
     .then((room) => {
       const roomDetails = document.createElement("div");
-      roomDetails.classList.add('room-details')
+      roomDetails.classList.add("room-details");
+
+      const addToCartButton = Button("Book now", () => {
+        cartManager.addItem(room);
+      });
 
       roomDetails.innerHTML = `
-        <strong>Nazwa:</strong> ${room.name}
+
+        <div class='room-details-image'>
+        <img src=${require("../assets/room.jpg")} alt='Room photo'/>
+        </div>
+        <div class='room-details-amenities'>
+        <ul>
+        <li>45-50 m2</li>
+        <li>2 rooms, 1 bathroom, kitchenette</li>
+        <li>1 double, 1 folded</li>
+        <li>Balcony, Wi-Fi, air conditioning, TV</li>
+        <li>1 sofa bed</li>
+        <li>PS5 & Xbox ONE</li>
+     </ul>
+        </div>
+        <div class='room-details-info'>
+        <strong class='room-details-info-room-name'>${room.name}</strong>
         <br/>
-        <strong>Beds:</strong> ${room.beds}x🛏️
+        <strong>Beds: ${room.beds}</strong> 
         <br/>
-        <strong>Guests:</strong> ${room.guests}x👤
+        <strong>Guests:  ${room.guests}</strong>
         <br/>
         <strong>Description:</strong> ${room.description}
         <br/>
-        <strong>Price:</strong> ${room.price.toFixed(2)} zł
+        </div>
+        <div class='room-details-btn'>
+        <strong> ${room.price.toFixed(2)} PLN</strong>
+        </div>
+        
       `;
+
+      roomDetails.querySelector(".room-details-btn").append(addToCartButton);
 
       roomDetailsContainer.querySelector("header").remove();
       roomDetailsContainer.append(roomDetails);
     });
 
-
-    document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
 
   return roomDetailsContainer;
 }
