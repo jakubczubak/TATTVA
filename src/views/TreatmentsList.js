@@ -2,10 +2,10 @@ import { TreatmentListItem } from "./TreatmentsListItem";
 
 export function TreatmentList() {
   const section = document.createElement("section");
+  section.classList.add("treatment-list");
 
   section.innerHTML = `
-<h2>Treatments List</h2>
-<header>Loading</header>
+<header>Loading...</header>
 `;
 
   fetch("http://localhost:3000/treatments")

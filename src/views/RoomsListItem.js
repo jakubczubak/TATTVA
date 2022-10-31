@@ -6,12 +6,10 @@ import { RoomDetails } from "./RoomDetails";
 // wytwarza element <li> prezentujacy pojedynczy pokoj
 export function RoomsListItem(room) {
   const li = document.createElement("li");
-  li.classList.add('list-item');
+  li.classList.add("list-item");
 
-  const readMoreButton = Button("Read More", () => {
-
-    document.querySelector('.room-list').append(RoomDetails(room.id))
-    
+  const readMoreButton = Button("Read more...", () => {
+    document.querySelector(".room-list").append(RoomDetails(room.id));
   });
 
   const addToCartButton = Button("Book now", () => {

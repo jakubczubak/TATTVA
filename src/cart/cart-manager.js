@@ -115,9 +115,9 @@ export const cartManager = {
       ".shopping-cart-element"
     );
 
-    if (counter == 0) {
+    if (counter == 0 && shoppingCartCounter != null) {
       shoppingCartCounter.remove();
-    } else {
+    } else if (counter >= 1) {
       if (shoppingCartCounter) {
         shoppingCartCounter.innerHTML = `
         ${counter}
