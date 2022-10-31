@@ -8,9 +8,7 @@ import { modalManger } from "../modal/modal-manager";
 const key = "IT_SPA_CART";
 
 export const cartManager = {
-
   addItem(item) {
-    
     modalManger.createModal(
       {
         type: "info",
@@ -44,6 +42,8 @@ export const cartManager = {
       const stringifiedContent = JSON.stringify(parsedContent);
       localStorage.setItem(key, stringifiedContent);
     }
+
+    cartManager.updateShoppingCartCounter();
   },
 
   removeItem(item) {
@@ -66,6 +66,8 @@ export const cartManager = {
         localStorage.setItem(key, stringifiedContent);
       }
     }
+
+    cartManager.updateShoppingCartCounter();
   },
 
   getAllItems() {
@@ -91,6 +93,44 @@ export const cartManager = {
         .reduce((accumulator, cartEntry) => {
           return accumulator + cartEntry.quantity * cartEntry.item.price;
         }, 0);
+    }
+  },
+  getTotalItems() {
+    const cart = localStorage.getItem(key);
+
+    if (cart === null) {
+      return 0;
+    } else {
+      const parsedContent = JSON.parse(cart);
+
+      return Object.values(parsedContent) // [ { quantity: 2, item: {} }, { quantity: 3, item: {} }, ... ]
+        .reduce((accumulator, cartEntry) => {
+          return accumulator + cartEntry.quantity;
+        }, 0);
+    }
+  },
+  updateShoppingCartCounter() {
+    let counter = cartManager.getTotalItems();
+    const shoppingCartCounter = document.querySelector(
+      ".shopping-cart-element"
+    );
+
+    if (counter == 0) {
+      shoppingCartCounter.remove();
+    } else {
+      if (shoppingCartCounter) {
+        shoppingCartCounter.innerHTML = `
+        ${counter}
+        `;
+      } else {
+        const shoppingCart = document.querySelector(".shopping-cart");
+        const counterElement = document.createElement("div");
+        counterElement.classList.add("shopping-cart-element");
+        counterElement.innerHTML = `
+        ${counter}
+        `;
+        shoppingCart.append(counterElement);
+      }
     }
   },
 };

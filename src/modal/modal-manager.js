@@ -16,14 +16,6 @@ export const modalManger = {
 
     document.body.appendChild(modalContainer);
 
-    const closeModalIcon = document.querySelector(".modal-close-icon");
-
-    closeModalIcon.addEventListener("click", () => {
-      const modal = document.querySelector(".modal-container");
-      modal.remove();
-      document.body.style.overflow = "auto";
-    });
-
     const acceptBtn = document.querySelector(".modal-accept");
 
     acceptBtn.addEventListener("click", acceptBtnFunction);
@@ -71,5 +63,7 @@ export const modalManger = {
     });
 
     document.body.dispatchEvent(navigateEvent);
+
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   },
 };

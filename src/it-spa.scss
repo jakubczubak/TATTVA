@@ -44,6 +44,7 @@ nav {
     padding: 8px 20px;
     transition: 0.1s all ease-in-out;
     margin: 10px;
+    position: relative;
 
     &:active,
     &:focus,
@@ -80,6 +81,19 @@ nav {
     &:hover {
       border: none;
     }
+  }
+
+  .shopping-cart-element {
+    position: absolute;
+    background-color: $Violet;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 20px;
+    line-height: 20px;
+    top: 0;
+    right: 0;
   }
 }
 
@@ -433,20 +447,6 @@ main {
 
     .modal-decline {
       background-color: $danger;
-    }
-
-    .modal-close-icon {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-
-      &:hover {
-        color: gray;
-      }
     }
   }
 }

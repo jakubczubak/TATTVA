@@ -40,9 +40,9 @@ export function RoomDetails(id) {
         <div class='room-details-info'>
         <strong class='room-details-info-room-name'>${room.name}</strong>
         <br/>
-        <strong>Beds: ${room.beds}</strong> 
+        <strong>Beds: ${room.beds}x</strong> 
         <br/>
-        <strong>Guests:  ${room.guests}</strong>
+        <strong>Guests:  ${room.guests}x</strong>
         <br/>
         <strong>Description:</strong> ${room.description}
         <br/>

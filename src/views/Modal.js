@@ -9,7 +9,6 @@ export function Modal(body) {
         <button class="modal-accept">${body.accept_btn}</button>
         <button class="modal-decline">${body.decline_btn}</button>
       </div>
-      <button class="modal-close-icon">X</button>
     </div>
     `;
 }

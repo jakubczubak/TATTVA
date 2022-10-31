@@ -4,9 +4,7 @@ import "./it-spa.scss";
 import { Home } from "./views/Home";
 import { Nav } from "./navigation/Nav"; // pamietaj o dodaniu importow!
 import { Footer } from "./views/Footer.js";
-
-
-
+import { cartManager } from "./cart/cart-manager";
 
 const main = document.querySelector("main");
 
@@ -18,6 +16,7 @@ main.append(Home());
 
 main.after(Footer());
 
+cartManager.updateShoppingCartCounter(); // aktualizacja ilości elementów w koszyku po odświeżeniu strony
 
 document.body.addEventListener("navigate", (event) => {
   // ROWNOZNACZNE Z: const Component = event.detail;
