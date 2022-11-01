@@ -108,7 +108,10 @@ export function DateComponent() {
     const date = new Date();
 
     let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-    let month = date.getMonth() + 1;
+    let month =
+      date.getMonth() + 1 < 10
+        ? "0" + date.getMonth() + 1
+        : date.getMonth() + 1;
     let year = date.getFullYear();
 
     let currentDate = `${year}-${month}-${day}`;
@@ -129,8 +132,11 @@ export function DateComponent() {
 
     const date = new Date().addDays(365);
 
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
+    let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    let month =
+      date.getMonth() + 1 < 10
+        ? "0" + date.getMonth() + 1
+        : date.getMonth() + 1;
     let year = date.getFullYear();
 
     let currentDate = `${year}-${month}-${day}`;
@@ -170,7 +176,10 @@ export function setCheckOutDate(dateContainer) {
     updatedDate.getDate() < 10
       ? "0" + updatedDate.getDate()
       : updatedDate.getDate();
-  let month = updatedDate.getMonth() + 1;
+  let month =
+    updatedDate.getMonth() + 1 < 10
+      ? "0" + (updatedDate.getMonth() + 1)
+      : updatedDate.getMonth() + 1;
   let year = updatedDate.getFullYear();
 
   let currentDate = `${year}-${month}-${day}`;
