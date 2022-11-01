@@ -85,7 +85,6 @@ export function DateComponent() {
 
       document.body.style.overflow = "auto";
     }
-    
   });
 
   const dateGuestBtn = dateContainer.querySelector(".date-guest-img");
@@ -108,7 +107,7 @@ export function DateComponent() {
   function setMinCheckInDate() {
     const date = new Date();
 
-    let day = date.getDate();
+    let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
 
