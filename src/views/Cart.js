@@ -3,19 +3,33 @@ import { Button } from "../common/Button";
 
 export function Cart() {
   const section = document.createElement("section");
+  section.classList.add('shopping-cart-container')
 
   section.innerHTML = `
-    <h2>Koszyk</h2>
-    <p>Oto zawartość twojego koszyka</p>
+  <div class='shopping-cart-header'>
+  <div class='active'>
+  <strong>01</strong>
+  <p>Shopping cart -</p>
+  </div>
+  <div>
+  <strong>02</strong>
+  <p>Personal data -</p>
+  </div>
+  <div>
+  <strong>03</strong>
+  <p>Payment -</p>
+  </div>
+  </div>
+    
     `;
   const table = document.createElement("table");
   table.classList.add("table");
 
   const tableHead = document.createElement("tr");
   tableHead.innerHTML = `
-    <th>Name</th>
-    <th>Price</th>
+    <th>Item</th>
     <th>Quantity</th>
+    <th>Price</th>
     <th></th>
     `;
 
@@ -24,9 +38,9 @@ export function Cart() {
 
     tr.innerHTML = `
         <td>${cartEntry.item.name}</td>
-        <td>${cartEntry.item.price.toFixed(2)} zł</td>
         <td>${cartEntry.quantity}</td>
-        <th></th>
+        <td>${cartEntry.item.price.toFixed(2)} PLN</td>
+        <td></td>
         `;
 
     const removeFromCart = Button("🗑️", () => {
@@ -46,11 +60,14 @@ export function Cart() {
   });
 
   const tableFooter = document.createElement("tr");
+  tableFooter.classList.add('table-last-row')
   tableFooter.innerHTML = `
     <td></td>
     <td></td>
-    <td>
-        <strong>${cartManager.getTotal().toFixed(2)} zł</strong>
+    <td class='shopping-cart-total'>
+        <div>Total:</div>
+        <div class='shopping-cart-total'> <strong>${cartManager.getTotal().toFixed(2)} PLN</strong></div>
+        <div><button>NEXT</button></div> 
     </td>
     <td></td>
 

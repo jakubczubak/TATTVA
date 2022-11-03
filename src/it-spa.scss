@@ -747,6 +747,116 @@ main {
       }
     }
   }
+
+  
+}
+
+.shopping-cart-container{
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+  
+  .shopping-cart-header{
+    text-align: center;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 40px;
+
+
+
+    div{
+      display: flex;
+      align-items: baseline;
+      padding: 0 30px;
+
+
+
+      strong{
+        display: inline-block;
+        padding: 0 16px;
+        font-size: 42px;
+        position: relative;
+        top: 6px;
+    
+      }
+    }
+
+    div.active{
+      color: black;
+    }
+  }
+
+  table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+
+    th{
+      font-size: 20px;
+      font-weight: 400;
+      padding: 16px 0;
+      border-bottom: 1px solid $Violet;
+    }
+    tr{
+      border-bottom: 1px solid $Violet;
+    }
+    td{
+      padding: 32px 0;
+     
+
+      div button {
+        border: none;
+            background-color: $Violet;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 16px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border-radius: 16px;
+            padding: 8px 60px;
+            margin-top:8px;
+            &:hover {
+              opacity: 80%;
+            }
+      }
+      .shopping-cart-total{
+        color: rgba(0, 0, 0, 0.6) ;
+        font-size: 20px;
+        margin: 8px 0;
+      }
+    }
+
+    td{
+      padding: 32px 0;
+
+      div button {
+        border: none;
+            background-color: $Violet;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 16px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border-radius: 16px;
+            padding: 8px 60px;
+            margin-top:8px;
+            &:hover {
+              opacity: 80%;
+            }
+      }
+      .shopping-cart-total{
+        color: rgba(0, 0, 0, 0.6) ;
+        font-size: 20px;
+        margin: 8px 0;
+      }
+    }
+
+    .table-last-row{
+      border-bottom: none
+    }
+  }
 }
 
 .date-data-picker-container {
