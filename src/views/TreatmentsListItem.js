@@ -7,12 +7,8 @@ export function TreatmentListItem(treatment) {
   li.classList.add("treatmet-item");
 
   const readMoreButton = Button("Read more...", () => {
-    const navigateEvent = new CustomEvent("navigate", {
-      detail: () => TreatmentDetails(treatment.id),
+      document.querySelector(".treatment-list").append(TreatmentDetails(treatment.id));
     });
-
-    document.body.dispatchEvent(navigateEvent);
-  });
 
   const addToCartButton = Button("ADD TO CART", () => {
     cartManager.addItem(treatment);
@@ -41,5 +37,7 @@ export function TreatmentListItem(treatment) {
   li.querySelector(".treatmet-item-info-add-to-cart-btn").append(
     addToCartButton
   );
+
+  
   return li;
 }

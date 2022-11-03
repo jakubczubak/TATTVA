@@ -462,6 +462,97 @@ main {
       }
     }
   }
+
+  .treatment-details-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(1px);
+
+    .treatment-details{
+      background-color: #fff;
+      position: relative;
+      width: 600px;
+      height: 800px;
+      border-radius: 32px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      text-align: center;
+
+      .treatment-details-image {
+        height: 40%;
+        overflow: hidden;
+        position: relative;
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+      }
+
+      .treatment-details-info{
+        padding: 16px;
+        h4{
+          font-weight: 600;
+          font-size: 20px;
+          color: black;
+          display: inline-block;
+          margin-bottom: 16px;
+          margin-top: 16px;
+        }
+        p{
+          color: rgba(0, 0, 0, 0.6);
+        }
+
+        .treatment-details-info-price{
+          display: inline-block;
+            font-weight: 600;
+            font-size: 25px;
+            color: rgba(0, 0, 0, 0.6);
+            padding: 16px 0;
+
+            position: absolute;
+            transform: translate(-50%);
+            left: 50%;
+            width: 50%;
+            bottom: 100px;
+        }
+
+        .treatment-details-info-add-to-cart button{
+          border: none;
+            background-color: $Violet;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 16px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border-radius: 16px;
+            padding: 12px 40px;
+
+            position: absolute;
+            transform: translate(-50%);
+            left: 50%;
+            width: 50%;
+            bottom: 40px;
+
+            &:hover {
+              opacity: 80%;
+            }
+        }
+      }
+
+    }
+  }
 }
 
 .modal-container {
