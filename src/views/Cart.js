@@ -53,6 +53,11 @@ export function Cart() {
       document.body.dispatchEvent(navigateEvent);
     });
 
+    removeFromCart.innerHTML = `
+    <img src=${require("../assets/cart-x.svg")} alt="shopping-cart icon" />
+    `; 
+    removeFromCart.classList.add('remove-from-cart-btn');
+
     // wstawiamy guzik do usuwania z koszyka do ostatniego lementu-dziecka w/w wierza (tr)
     tr.lastElementChild.append(removeFromCart);
 

@@ -856,6 +856,23 @@ main {
     .table-last-row{
       border-bottom: none
     }
+
+    .remove-from-cart-btn{
+      background: none;
+      border: none;
+      cursor: pointer;
+      
+
+
+      &:hover {
+        opacity: 80%;
+      }
+
+      img{
+        height: 32px;
+      width: 32px;
+      }
+    }
   }
 }
 
