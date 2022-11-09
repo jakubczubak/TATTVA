@@ -26,6 +26,21 @@ export function Nav() {
 
     if (navItem.class == "login") {
       navButton.classList.add(navItem.class);
+
+      navButton.addEventListener("click", () => {
+        const main = document.querySelector("main");
+        main.append(Login());
+      });
+
+   
+    }else{
+      navButton.addEventListener("click", () => {
+        const navigateEvent = new CustomEvent("navigate", {
+          detail: navItem.component,
+        });
+  
+        document.body.dispatchEvent(navigateEvent);
+      });
     }
 
     if (navItem.class == "logo") {
@@ -42,13 +57,7 @@ export function Nav() {
       navButton.classList.add("shopping-cart");
     }
 
-    navButton.addEventListener("click", () => {
-      const navigateEvent = new CustomEvent("navigate", {
-        detail: navItem.component,
-      });
-
-      document.body.dispatchEvent(navigateEvent);
-    });
+    
 
     return navButton;
   });
