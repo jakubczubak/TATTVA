@@ -34,5 +34,34 @@ export function Login(){
       }
     });
 
+    const loginBtn = loginContainer.querySelector('.login-btn');
+
+    loginBtn.addEventListener('click', () => {
+      window.alert('Logowanie...');
+
+      //Dopisać logikę logowania...
+
+      let emailValue = loginContainer.querySelector('.login-email-input').value;
+      let passwordValue = loginContainer.querySelector('.login-password-input').value;
+
+      console.log('Email: ' + emailValue);
+      console.log('Password: ' + passwordValue);
+    });
+
+
+    const forgotPasswordBtn = loginContainer.querySelector('.login-forgot-password');
+
+    forgotPasswordBtn.addEventListener('click', () => {
+      window.alert('Forgot password');
+      //Dopisać logikę
+    });
+
+    const signUpBtn = loginContainer.querySelector('.login-sign-up-btn');
+
+    signUpBtn.addEventListener('click', () => {
+      window.alert('Sign Up');
+      //Dopisać logikę
+    });
+
     return loginContainer;
 }
