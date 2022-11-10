@@ -1,4 +1,4 @@
-
+import { Login } from "./Login";
 export function ForgotPassword() {
 
     const forgotPassowrdContainer = document.createElement('div');
@@ -13,5 +13,31 @@ export function ForgotPassword() {
         <h4 class="forgot-password-sign-in">Sign In</h4>
       </div>
     `
+
+    const resetBtn = forgotPassowrdContainer.querySelector('.forgot-password-btn');
+
+    resetBtn.addEventListener('click', () => {
+        let emialValue = forgotPassowrdContainer.querySelector('.forgot-password-email-input').value;
+        console.log('Reseting password...');
+        console.log('Check email: ' + emialValue);
+        forgotPassowrdContainer.remove();
+
+        const main = document.querySelector("main");
+        main.append(Login());
+        document.body.style.overflow = "hidden";
+
+    })
+
+    const signInBtn = forgotPassowrdContainer.querySelector('.forgot-password-sign-in');
+
+    signInBtn.addEventListener('click', () => {
+
+        forgotPassowrdContainer.remove();
+
+        const main = document.querySelector("main");
+        main.append(Login());
+        document.body.style.overflow = "hidden";
+    })
+
     return forgotPassowrdContainer;
 }
