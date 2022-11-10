@@ -30,6 +30,7 @@ export function Nav() {
       navButton.addEventListener("click", () => {
         const main = document.querySelector("main");
         main.append(Login());
+        document.body.style.overflow = "hidden";
       });
 
    
