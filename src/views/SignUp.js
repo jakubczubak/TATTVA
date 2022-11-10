@@ -62,7 +62,26 @@ export function SignUp() {
 
       signUpBtn.addEventListener('click', (e) => {
         e.preventDefault();
-      })
+
+      
+
+      });
+
+      function validateForm() {
+
+        let ifOK = false;
+
+
+        return ifOK;
+      }
+
+      function checkIfEmailExist(email){
+
+        let ifExist = false;
+        //check if email exist in DB
+
+        return ifExist
+      }
 
     return signUpContainer;
 }
