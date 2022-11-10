@@ -1,4 +1,5 @@
 import { ForgotPassword } from "./ForgotPassword";
+import { SignUp } from "./SignUp";
 
 
 export function Login(){
@@ -8,13 +9,15 @@ export function Login(){
 
     loginContainer.innerHTML = `
     <div class="login" tabindex="0">
+        <form>
         <img src=${require("../assets/tattva-spa-vector-logo.svg")} alt="logo">
         <h4>Sign in and start your SPA adventure</h4>
         <input class='login-email-input'  type="Email" placeholder="Email">
         <input class='login-password-input' type="password" placeholder="Password">
-        <button class='login-btn'>LOGIN</button>
+        <button type='submit' class='login-btn'>LOGIN</button>
         <h4 class="login-forgot-password">Forgot password?</h4>
         <p>Don’t have an account yet? <strong class='login-sign-up-btn'>Sign Up</strong></p>
+        </form>
       </div>
     `
 
@@ -37,7 +40,8 @@ export function Login(){
 
     const loginBtn = loginContainer.querySelector('.login-btn');
 
-    loginBtn.addEventListener('click', () => {
+    loginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       window.alert('Logowanie...');
 
       //Dopisać logikę logowania...
@@ -64,8 +68,15 @@ export function Login(){
     const signUpBtn = loginContainer.querySelector('.login-sign-up-btn');
 
     signUpBtn.addEventListener('click', () => {
-      window.alert('Sign Up');
-      //Dopisać logikę
+      
+      loginContainer.remove();
+      const main = document.querySelector("main");
+      main.append(SignUp());
+
+      const signUp = document.querySelector('.sign-up');
+
+      signUp.focus();
+      document.body.style.overflow = "hidden";
     });
 
     return loginContainer;

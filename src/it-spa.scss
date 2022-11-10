@@ -1119,6 +1119,125 @@ margin-top: 24px;
     }
 
   }
+
+
+  
+}
+
+.sign-up-container{ 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  z-index: 9999;
+
+  .sign-up{
+    background-color: #fff;
+    position: relative;
+    width: 550px;
+    min-height: 700px;
+    padding: 30px 20px 20px 40px;
+    border-radius: 32px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+
+    img{
+      width: 200px;
+      height: 200px;
+
+    }
+
+    h4{
+      position: relative;
+      top: -8px;
+      margin: 0 auto 30px auto;
+      font-weight: 400;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    input{
+      display: block;
+      margin: 14px auto;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 16px;
+      border: none;
+      height: 52px;
+      width: 70%;
+      color: white;
+      padding-left: 12px;
+      cursor: pointer;
+
+      &:active,
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+
+    &::placeholder{
+      color: white;
+      opacity: 100%;
+      font-weight: 400;
+    }
+    }
+
+    .sign-up-password-indicator-container{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+      margin: 32px auto;
+
+      div{
+        height: 8px;
+        width: 100px;
+        border-radius: 4px;
+        background: green;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    }
+
+    button{
+      border: none;
+      background-color: $Violet;
+      width: 70%;
+      height: 52px;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 16px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            border-radius: 16px;
+            padding: 8px 60px;
+            margin-top:8px;
+            &:hover {
+              opacity: 80%;
+            }
+    }
+
+    p{
+      margin-top: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+
+      & strong{
+        color: #085C8B;
+        cursor: pointer;
+        font-weight: 400;
+      }
+    }
+
+  }
+
+
+  
 }
 
 footer {
