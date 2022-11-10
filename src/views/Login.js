@@ -1,3 +1,4 @@
+import { ForgotPassword } from "./ForgotPassword";
 
 
 export function Login(){
@@ -52,8 +53,12 @@ export function Login(){
     const forgotPasswordBtn = loginContainer.querySelector('.login-forgot-password');
 
     forgotPasswordBtn.addEventListener('click', () => {
-      window.alert('Forgot password');
-      //Dopisać logikę
+
+      loginContainer.remove();
+      const main = document.querySelector("main");
+      main.append(ForgotPassword());
+      document.body.style.overflow = "hidden";
+
     });
 
     const signUpBtn = loginContainer.querySelector('.login-sign-up-btn');
