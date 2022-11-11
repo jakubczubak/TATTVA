@@ -1,11 +1,9 @@
-
 import { Login } from "./Login";
 export function SignUp() {
+  const signUpContainer = document.createElement("div");
+  signUpContainer.classList.add("sign-up-container");
 
-    const signUpContainer = document.createElement('div');
-    signUpContainer.classList.add('sign-up-container');
-
-    signUpContainer.innerHTML = `
+  signUpContainer.innerHTML = `
     <div class="sign-up" tabindex="10">
     <form>
     <img src=${require("../assets/tattva-spa-vector-logo.svg")} alt="logo">
@@ -24,64 +22,83 @@ export function SignUp() {
     <p>Already have an account ? <strong class='sign-up-sign-in-btn'>Sign In</strong></p>
     </form>
   </div>
-    `
+    `;
 
-    const signInBtn = signUpContainer.querySelector('.sign-up-sign-in-btn');
+  const signInBtn = signUpContainer.querySelector(".sign-up-sign-in-btn");
 
-    signInBtn.addEventListener('click', () => {
+  signInBtn.addEventListener("click", () => {
+    signUpContainer.remove();
 
-        signUpContainer.remove();
+    const main = document.querySelector("main");
+    main.append(Login());
+    document.body.style.overflow = "hidden";
+  });
 
-        const main = document.querySelector("main");
-        main.append(Login());
-        document.body.style.overflow = "hidden";
-    });
+  signUpContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("sign-up-container")) {
+      e.target.remove();
+      const main = document.querySelector("main");
+      main.append(Login());
+      document.body.style.overflow = "hidden";
+    }
+  });
 
+  const signUp = signUpContainer.querySelector(".sign-up");
 
-    signUpContainer.addEventListener("click", (e) => {
-        if (e.target.classList.contains("sign-up-container")) {
-          e.target.remove();
-          const main = document.querySelector("main");
-        main.append(Login());
-        document.body.style.overflow = "hidden";
-        }
-      });
+  signUp.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      signUpContainer.remove();
+      const main = document.querySelector("main");
+      main.append(Login());
+      document.body.style.overflow = "hidden";
+    }
+  });
 
-      const signUp = signUpContainer.querySelector('.sign-up');
+  const signUpBtn = signUpContainer.querySelector(".sign-up-btn");
 
-        signUp.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            signUpContainer.remove();
-            const main = document.querySelector("main");
-            main.append(Login());
-            document.body.style.overflow = "hidden";
-        }
-      });
+  const alerts = signUpContainer.querySelector(".sign-up-alerts");
 
-      const signUpBtn = signUpContainer.querySelector('.sign-up-btn');
+  signUpBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-      signUpBtn.addEventListener('click', (e) => {
-        e.preventDefault();
+    validateForm();
+  });
 
-      
+  function validateForm() {
+    alerts.innerHTML = ``;
 
-      });
+    let ifOK = false;
 
-      function validateForm() {
+    const email = signUpContainer.querySelector(".sign-up-email-input").value;
 
-        let ifOK = false;
+    if (validateEmail(email)) {
+      const paragraph = document.createElement("p");
+      paragraph.style.color = "green";
+      paragraph.innerHTML = `${email} is valid 👏`;
 
+      alerts.append(paragraph);
+    } else {
+      const paragraph = document.createElement("p");
+      paragraph.style.color = "red";
+      paragraph.innerHTML = `${email} is not valid 🤦`;
+      alerts.append(paragraph);
+    }
 
-        return ifOK;
-      }
+    return ifOK;
+  }
 
-      function checkIfEmailExist(email){
+  function checkIfEmailExist(email) {
+    let ifExist = false;
+    //check if email exist in DB
 
-        let ifExist = false;
-        //check if email exist in DB
+    return ifExist;
+  }
 
-        return ifExist
-      }
+  function validateEmail(email) {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  }
 
-    return signUpContainer;
+  return signUpContainer;
 }
