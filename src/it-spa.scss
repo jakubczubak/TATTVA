@@ -1173,7 +1173,8 @@ main {
     .sign-up-password-indicator-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 30px;
       width: 70%;
       margin: 16px auto;
 
@@ -1181,9 +1182,13 @@ main {
         height: 8px;
         width: 100px;
         border-radius: 4px;
-        background: green;
+        background-color: $Violet;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
+    }
+
+    .sign-up-password-indicator p {
+      color: gray;
     }
     .sign-up-alerts {
       margin: 16px auto;

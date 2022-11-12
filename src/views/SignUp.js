@@ -13,6 +13,8 @@ export function SignUp() {
     <input class='sign-up-password-input' type="password" placeholder="Password">
     <input class='sign-up-confirm-password-input' type="password" placeholder="Confirm Password">
     <div class='sign-up-password-indicator-container'>
+    </div>
+    <div class='sign-up-password-indicator'>
 
     </div>
     <div class='sign-up-alerts'>
@@ -23,6 +25,12 @@ export function SignUp() {
     </form>
   </div>
     `;
+
+  const passwordInput = signUpContainer.querySelector(
+    ".sign-up-password-input"
+  );
+
+  passwordInput.addEventListener("keyup", passwordIndicator);
 
   const signInBtn = signUpContainer.querySelector(".sign-up-sign-in-btn");
 
@@ -138,6 +146,42 @@ export function SignUp() {
     } else {
       //Minimum eight characters, at least one letter and one number:
       return password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
+    }
+  }
+
+  function passwordIndicator() {
+    const password = signUpContainer.querySelector(
+      ".sign-up-password-input"
+    ).value;
+
+    const indicatorContainer = signUpContainer.querySelector(
+      ".sign-up-password-indicator-container"
+    );
+
+    const alert = signUpContainer.querySelector(".sign-up-password-indicator");
+
+    indicatorContainer.innerHTML = "";
+    alert.innerHTML = "";
+
+    const weak = document.createElement("div");
+    const normal = document.createElement("div");
+    const strong = document.createElement("div");
+
+    if (password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,8}$/)) {
+      indicatorContainer.append(weak, normal);
+      alert.innerHTML = `
+      <p>Password is good 💪</p>
+      `;
+    } else if (password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{9,}$/)) {
+      indicatorContainer.append(weak, normal, strong);
+      alert.innerHTML = `
+      <p>Password is strong 💪💪💪</p>
+      `;
+    } else {
+      indicatorContainer.append(weak);
+      alert.innerHTML = `
+      <p>Password is weak 👎</p>
+      `;
     }
   }
 
