@@ -67,21 +67,49 @@ export function SignUp() {
   function validateForm() {
     alerts.innerHTML = ``;
 
-    let ifOK = false;
+    let ifOK = true;
 
     const email = signUpContainer.querySelector(".sign-up-email-input").value;
 
     if (validateEmail(email)) {
-      const paragraph = document.createElement("p");
-      paragraph.style.color = "green";
-      paragraph.innerHTML = `${email} is valid 👏`;
-
-      alerts.append(paragraph);
+      //do nothing
     } else {
       const paragraph = document.createElement("p");
-      paragraph.style.color = "red";
-      paragraph.innerHTML = `${email} is not valid 🤦`;
+      paragraph.style.color = "#f44336";
+      paragraph.innerHTML = `Email ${email} is not valid 😞`;
       alerts.append(paragraph);
+      ifOK = false;
+    }
+
+    const firstName = signUpContainer.querySelector(
+      ".sign-up-first-name-input"
+    ).value;
+
+    if (validateFirstNameInput(firstName)) {
+      //do nothing
+    } else {
+      const paragraph = document.createElement("p");
+      paragraph.style.color = "#f44336";
+      paragraph.innerHTML = `First name ${firstName} is not valid 🤦`;
+      alerts.append(paragraph);
+      ifOK = false;
+    }
+
+    const password = signUpContainer.querySelector(
+      ".sign-up-password-input"
+    ).value;
+    const confirmPassword = signUpContainer.querySelector(
+      ".sign-up-confirm-password-input"
+    ).value;
+
+    if (valdatePassword(password, confirmPassword)) {
+      //do nothing
+    } else {
+      const paragraph = document.createElement("p");
+      paragraph.style.color = "#f44336";
+      paragraph.innerHTML = `Password must be minimum eight characters, at least one letter and one number 👌`;
+      alerts.append(paragraph);
+      ifOK = false;
     }
 
     return ifOK;
@@ -98,6 +126,19 @@ export function SignUp() {
     return email.match(
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
+  }
+
+  function validateFirstNameInput(firstName) {
+    return firstName.match(/^[\p{L}'][ \p{L}'-]*[\p{L}]$/u);
+  }
+
+  function valdatePassword(password, confirmPassword) {
+    if (password != confirmPassword) {
+      return null;
+    } else {
+      //Minimum eight characters, at least one letter and one number:
+      return password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
+    }
   }
 
   return signUpContainer;
