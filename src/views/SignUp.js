@@ -69,7 +69,40 @@ export function SignUp() {
   signUpBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    validateForm();
+    if (validateForm()) {
+      console.log("wszystko jest ok");
+
+      const emialValue = signUpContainer.querySelector(
+        ".sign-up-email-input"
+      ).value;
+      const firstName = signUpContainer.querySelector(
+        ".sign-up-first-name-input"
+      ).value;
+      const passwordValue = signUpContainer.querySelector(
+        ".sign-up-password-input"
+      ).value;
+
+      const user = {
+        email: emialValue,
+        firstName: firstName,
+        passwordValue: passwordValue,
+      };
+
+      fetch("http://localhost:3000/users", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
   });
 
   function validateForm() {
@@ -87,6 +120,14 @@ export function SignUp() {
       paragraph.innerHTML = `Email ${email} is not valid 😞`;
       alerts.append(paragraph);
       ifOK = false;
+    }
+
+    console.log(checkIfEmailExist(email));
+
+    if (checkIfEmailExist(email)) {
+      console.log("email istnieje w bazie danych");
+    } else {
+      console.log("email nie istnieje w bazie danych");
     }
 
     const firstName = signUpContainer.querySelector(
@@ -125,9 +166,17 @@ export function SignUp() {
 
   function checkIfEmailExist(email) {
     let ifExist = false;
-    //check if email exist in DB
+    fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((users) => {
+        users.map((user) => {
+          if (user.email == email) {
+            ifExist = true;
+          }
+        });
 
-    return ifExist;
+        return ifExist;
+      });
   }
 
   function validateEmail(email) {

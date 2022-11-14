@@ -1,5 +1,72 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 1
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 2
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 3
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 4
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 5
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 6
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 7
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 8
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 9
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 10
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba1234",
+      "id": 11
+    }
+  ],
   "rooms": [
     {
       "id": 1,
@@ -94,4 +161,3 @@
     }
   ]
 }
- 
