@@ -14,7 +14,7 @@ Aplikacja powinna umożliwiać:
 ## Booking
 
 Stwórz komponent koszyka, który wyświetla podsumowanie zamówienia.
-Koszyk powinien też umożliwiać nanoszenie poprawek do zamówienia.
+Koszyk powinien też umożliwiać nanoszenie poprawek do zamówienia.`
 Użytkownik nie może wybrać daty przyjazdu wcześniejszej niż bieżąca.
 Wybrana data wyjazdu nie może być dalsza niż rok od daty przyjazdu.
 

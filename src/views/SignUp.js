@@ -70,7 +70,6 @@ export function SignUp() {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log("wszystko jest ok");
 
       const emialValue = signUpContainer.querySelector(
         ".sign-up-email-input"
@@ -97,10 +96,10 @@ export function SignUp() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Success:", data);
+          // console.log("Success:", data);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   });
@@ -122,13 +121,8 @@ export function SignUp() {
       ifOK = false;
     }
 
-    console.log(checkIfEmailExist(email));
 
-    if (checkIfEmailExist(email)) {
-      console.log("email istnieje w bazie danych");
-    } else {
-      console.log("email nie istnieje w bazie danych");
-    }
+
 
     const firstName = signUpContainer.querySelector(
       ".sign-up-first-name-input"
@@ -161,22 +155,30 @@ export function SignUp() {
       ifOK = false;
     }
 
+    let isValid;
+
+    const isUserInBase = async () => {
+      const promise1 = await fetch("http://localhost:3000/users").then(data => {
+        if(data) {
+          isValid = true;
+        }
+      });
+    }
+
+    const mainFunction = async () => {
+      await isUserInBase(); 
+      console.log(isValid);
+    }
+
+    mainFunction();
+
     return ifOK;
   }
 
-  function checkIfEmailExist(email) {
-    let ifExist = false;
-    fetch("http://localhost:3000/users")
-      .then((response) => response.json())
-      .then((users) => {
-        users.map((user) => {
-          if (user.email == email) {
-            ifExist = true;
-          }
-        });
 
-        return ifExist;
-      });
+
+  function checkIfEmailExist(email) {
+        //to do
   }
 
   function validateEmail(email) {
