@@ -158,15 +158,17 @@ export function SignUp() {
     let isValid;
 
     const isUserInBase = async () => {
-      const promise1 = await fetch("http://localhost:3000/users").then(data => {
-        if(data) {
+      const promise1 = await fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((users) => {
+        if(users) {
           isValid = true;
         }
       });
     }
 
     const mainFunction = async () => {
-      await isUserInBase(); 
+      await isUserInBase()
       console.log(isValid);
     }
 
