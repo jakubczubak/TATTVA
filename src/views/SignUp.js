@@ -66,11 +66,12 @@ export function SignUp() {
 
   const alerts = signUpContainer.querySelector(".sign-up-alerts");
 
-  signUpBtn.addEventListener("click", (e) => {
+  signUpBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
+    await checkIfEmailExistInDataBase();
 
+    if (validateForm(emailExist)) {
       const emialValue = signUpContainer.querySelector(
         ".sign-up-email-input"
       ).value;
@@ -104,10 +105,41 @@ export function SignUp() {
     }
   });
 
-  function validateForm() {
+  let emailExist;
+
+  const checkIfEmailExistInDataBase = async () => {
+    const email = signUpContainer.querySelector(".sign-up-email-input").value;
+
+    await fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((users) => {
+        const user = users.find((user) => user.email === email);
+
+        return user;
+      })
+      .then((user) => {
+        if (user) {
+          emailExist = true;
+        } else {
+          emailExist = false;
+        }
+      });
+  };
+
+  function validateForm(emailExist) {
     alerts.innerHTML = ``;
 
     let ifOK = true;
+
+    if (emailExist) {
+      const paragraph = document.createElement("p");
+      paragraph.style.color = "#f44336";
+      paragraph.innerHTML = `Email already exist in Database 👻`;
+      alerts.append(paragraph);
+      ifOK = false;
+    } else {
+      //do nothing
+    }
 
     const email = signUpContainer.querySelector(".sign-up-email-input").value;
 
@@ -120,9 +152,6 @@ export function SignUp() {
       alerts.append(paragraph);
       ifOK = false;
     }
-
-
-
 
     const firstName = signUpContainer.querySelector(
       ".sign-up-first-name-input"
@@ -155,32 +184,7 @@ export function SignUp() {
       ifOK = false;
     }
 
-    let isValid;
-
-    const isUserInBase = async () => {
-      const promise1 = await fetch("http://localhost:3000/users")
-      .then((response) => response.json())
-      .then((users) => {
-        if(users) {
-          isValid = true;
-        }
-      });
-    }
-
-    const mainFunction = async () => {
-      await isUserInBase()
-      console.log(isValid);
-    }
-
-    mainFunction();
-
     return ifOK;
-  }
-
-
-
-  function checkIfEmailExist(email) {
-        //to do
   }
 
   function validateEmail(email) {
