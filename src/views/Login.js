@@ -1,14 +1,12 @@
 import { ForgotPassword } from "./ForgotPassword";
 import { SignUp } from "./SignUp";
-import { Nav } from '../navigation/Nav'
+import { Nav } from "../navigation/Nav";
 
+export function Login() {
+  const loginContainer = document.createElement("div");
+  loginContainer.classList.add("login-container");
 
-export function Login(){
-    
-    const loginContainer = document.createElement('div');
-    loginContainer.classList.add('login-container');
-
-    loginContainer.innerHTML = `
+  loginContainer.innerHTML = `
     <div class="login" tabindex="0">
         <form>
         <img src=${require("../assets/tattva-spa-vector-logo.svg")} alt="logo">
@@ -23,94 +21,92 @@ export function Login(){
         <p>Don’t have an account yet? <strong class='login-sign-up-btn'>Sign Up</strong></p>
         </form>
       </div>
-    `
+    `;
 
-    const login = document.querySelector('.login');
+  const login = document.querySelector(".login");
 
-    login.focus();
-    login.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        loginContainer.remove();
-        document.body.style.overflow = "auto";
-      }
-    });
+  login.focus();
+  login.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      loginContainer.remove();
+      document.body.style.overflow = "auto";
+    }
+  });
 
-    loginContainer.addEventListener("click", (e) => {
-      if (e.target.classList.contains("login-container")) {
-        e.target.remove();
-        document.body.style.overflow = "auto";
-      }
-    });
+  loginContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("login-container")) {
+      e.target.remove();
+      document.body.style.overflow = "auto";
+    }
+  });
 
-    const loginBtn = loginContainer.querySelector('.login-btn');
+  const loginBtn = loginContainer.querySelector(".login-btn");
 
-    loginBtn.addEventListener('click', async (e) => {
-      e.preventDefault();
-     
+  loginBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
 
-      const loginAlerts = loginContainer.querySelector('.login-alerts');
+    const loginAlerts = loginContainer.querySelector(".login-alerts");
 
-      loginAlerts.innerHTML = ``;
+    loginAlerts.innerHTML = ``;
 
-      let emailValue = loginContainer.querySelector('.login-email-input').value;
-      let passwordValue = loginContainer.querySelector('.login-password-input').value;
+    let emailValue = loginContainer.querySelector(".login-email-input").value;
+    let passwordValue = loginContainer.querySelector(
+      ".login-password-input"
+    ).value;
 
-      await fetch("http://localhost:3000/users")
+    await fetch("http://localhost:3000/users")
       .then((response) => response.json())
       .then((users) => {
         const user = users.find((user) => user.email === emailValue);
-        
-        if(user){
-          if(user.passwordValue === passwordValue){
-            window.alert('Successfully loged in...')
 
-            sessionStorage.setItem('userName', user.firstName);
+        if (user) {
+          if (user.passwordValue === passwordValue) {
+            window.alert("Successfully loged in...");
+
+            sessionStorage.setItem("userName", user.firstName);
 
             const main = document.querySelector("main");
-            const nav = document.querySelector('nav');
-            
+            const nav = document.querySelector("nav");
+
             nav.remove();
 
             main.before(Nav());
 
             loginContainer.remove();
-
+            document.body.style.overflow = "auto";
           }
-        }else{
+        } else {
           const paragraph = document.createElement("p");
           paragraph.style.color = "#f44336";
           paragraph.innerHTML = `Incorrect email address or password 👎`;
           loginAlerts.append(paragraph);
         }
       });
+  });
 
-    });
+  const forgotPasswordBtn = loginContainer.querySelector(
+    ".login-forgot-password"
+  );
 
+  forgotPasswordBtn.addEventListener("click", () => {
+    loginContainer.remove();
+    const main = document.querySelector("main");
+    main.append(ForgotPassword());
+    document.body.style.overflow = "hidden";
+  });
 
-    const forgotPasswordBtn = loginContainer.querySelector('.login-forgot-password');
+  const signUpBtn = loginContainer.querySelector(".login-sign-up-btn");
 
-    forgotPasswordBtn.addEventListener('click', () => {
+  signUpBtn.addEventListener("click", () => {
+    loginContainer.remove();
+    const main = document.querySelector("main");
+    main.append(SignUp());
 
-      loginContainer.remove();
-      const main = document.querySelector("main");
-      main.append(ForgotPassword());
-      document.body.style.overflow = "hidden";
+    const signUp = document.querySelector(".sign-up");
 
-    });
+    signUp.focus();
+    document.body.style.overflow = "hidden";
+  });
 
-    const signUpBtn = loginContainer.querySelector('.login-sign-up-btn');
-
-    signUpBtn.addEventListener('click', () => {
-      
-      loginContainer.remove();
-      const main = document.querySelector("main");
-      main.append(SignUp());
-
-      const signUp = document.querySelector('.sign-up');
-
-      signUp.focus();
-      document.body.style.overflow = "hidden";
-    });
-
-    return loginContainer;
+  return loginContainer;
 }
