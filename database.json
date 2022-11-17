@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "email": "asdasd@wp.pl",
-      "firstName": "Kuba",
+      "email": "kuba@wp.pl",
+      "firstName": "kuba",
       "passwordValue": "kuba12345",
       "id": 1
     }

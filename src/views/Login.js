@@ -15,6 +15,9 @@ export function Login(){
         <input class='login-email-input'  type="Email" placeholder="Email">
         <input class='login-password-input' type="password" placeholder="Password">
         <button type='submit' class='login-btn'>LOGIN</button>
+        <div class='login-alerts'>
+
+        </div>
         <h4 class="login-forgot-password">Forgot password?</h4>
         <p>Don’t have an account yet? <strong class='login-sign-up-btn'>Sign Up</strong></p>
         </form>
@@ -40,17 +43,35 @@ export function Login(){
 
     const loginBtn = loginContainer.querySelector('.login-btn');
 
-    loginBtn.addEventListener('click', (e) => {
+    loginBtn.addEventListener('click', async (e) => {
       e.preventDefault();
-      window.alert('Logowanie...');
+     
 
-      //Dopisać logikę logowania...
+      const loginAlerts = loginContainer.querySelector('.login-alerts');
+
+      loginAlerts.innerHTML = ``;
 
       let emailValue = loginContainer.querySelector('.login-email-input').value;
       let passwordValue = loginContainer.querySelector('.login-password-input').value;
 
-      console.log('Email: ' + emailValue);
-      console.log('Password: ' + passwordValue);
+      await fetch("http://localhost:3000/users")
+      .then((response) => response.json())
+      .then((users) => {
+        const user = users.find((user) => user.email === emailValue);
+        
+        if(user){
+          if(user.passwordValue === passwordValue){
+            window.alert('Successfully loged in...')
+            loginContainer.remove();
+          }
+        }else{
+          const paragraph = document.createElement("p");
+          paragraph.style.color = "#f44336";
+          paragraph.innerHTML = `Incorrect email address or password 👎`;
+          loginAlerts.append(paragraph);
+        }
+      });
+
     });
 
 

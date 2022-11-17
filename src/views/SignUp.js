@@ -98,6 +98,10 @@ export function SignUp() {
         .then((response) => response.json())
         .then((data) => {
           // console.log("Success:", data);
+          signUpContainer.remove();
+      const main = document.querySelector("main");
+      main.append(Login());
+      document.body.style.overflow = "hidden";
         })
         .catch((error) => {
           // console.error("Error:", error);
