@@ -5,6 +5,12 @@
       "firstName": "kuba",
       "passwordValue": "kuba12345",
       "id": 1
+    },
+    {
+      "email": "wp@wp.pl",
+      "firstName": "Kuba",
+      "passwordValue": "kuba12345",
+      "id": 2
     }
   ],
   "rooms": [

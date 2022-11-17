@@ -71,13 +71,45 @@ nav {
     }
   }
 
-  .logged-user{
+  .logged-user {
     border: none;
+    position: relative;
 
     &:active,
     &:focus,
     &:hover {
       border: none;
+    }
+
+    .drop-down-menu {
+      background-color: #fff;
+      position: absolute;
+      top: 50px;
+      left: -30px;
+      width: 200px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      text-align: left;
+      padding: 20px;
+      z-index: 99999;
+
+      ul {
+        list-style: none;
+
+        li {
+          padding: 8px 0;
+          color: rgba(0, 0, 0, 0.6);
+          transition: all 0.2s ease-in-out;
+          &:last-child {
+            border-bottom: none;
+          }
+          &:hover {
+            color: $Violet;
+            scale: 1.03;
+          }
+        }
+      }
     }
   }
 

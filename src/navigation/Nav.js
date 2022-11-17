@@ -6,7 +6,6 @@ import { TreatmentList } from "../views/TreatmentsList";
 import { Login } from "../views/Login";
 import { DropdownMenu } from "../views/DropdownMenu";
 
-
 // wytwarzamy nawigacje na podstawie tej tablicy
 const navItems = [
   { name: "Logo", component: Home, class: "logo" },
@@ -26,32 +25,33 @@ export function Nav() {
     navButton.innerText = navItem.name;
 
     if (navItem.class == "login") {
+      let loggedUser = sessionStorage.getItem("userName");
 
-      let loggedUser = sessionStorage.getItem('userName');
+      if (loggedUser) {
+        navButton.innerText = "Hi, " + loggedUser + " 👋";
+        navButton.classList.add("logged-user");
 
-      if(loggedUser){
-        navButton.innerText = 'Hi, ' + loggedUser + ' 👋';
-        navButton.classList.add('logged-user');
-
-        navButton.addEventListener('click', () => {
-          DropdownMenu();
-        })
-      }else{
+        navButton.addEventListener("click", () => {
+          const loggedUserBtn = document.querySelector(".logged-user");
+          loggedUserBtn.append(DropdownMenu());
+          const container = document.querySelector(".drop-down-menu");
+          container.focus();
+        });
+      } else {
         navButton.classList.add(navItem.class);
 
-      navButton.addEventListener("click", () => {
-        const main = document.querySelector("main");
-        main.append(Login());
-        document.body.style.overflow = "hidden";
-      });
+        navButton.addEventListener("click", () => {
+          const main = document.querySelector("main");
+          main.append(Login());
+          document.body.style.overflow = "hidden";
+        });
       }
-
-    }else{
+    } else {
       navButton.addEventListener("click", () => {
         const navigateEvent = new CustomEvent("navigate", {
           detail: navItem.component,
         });
-  
+
         document.body.dispatchEvent(navigateEvent);
       });
     }
@@ -69,8 +69,6 @@ export function Nav() {
       `;
       navButton.classList.add("shopping-cart");
     }
-
-    
 
     return navButton;
   });
