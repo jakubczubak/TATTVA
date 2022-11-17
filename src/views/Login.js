@@ -1,5 +1,6 @@
 import { ForgotPassword } from "./ForgotPassword";
 import { SignUp } from "./SignUp";
+import { Nav } from '../navigation/Nav'
 
 
 export function Login(){
@@ -62,7 +63,18 @@ export function Login(){
         if(user){
           if(user.passwordValue === passwordValue){
             window.alert('Successfully loged in...')
+
+            sessionStorage.setItem('userName', user.firstName);
+
+            const main = document.querySelector("main");
+            const nav = document.querySelector('nav');
+            
+            nav.remove();
+
+            main.before(Nav());
+
             loginContainer.remove();
+
           }
         }else{
           const paragraph = document.createElement("p");

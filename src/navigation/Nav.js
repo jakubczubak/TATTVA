@@ -4,7 +4,7 @@ import { RoomsList } from "../views/RoomsList";
 import { Cart } from "../views/Cart";
 import { TreatmentList } from "../views/TreatmentsList";
 import { Login } from "../views/Login";
-import { cartManager } from "../cart/cart-manager";
+
 
 // wytwarzamy nawigacje na podstawie tej tablicy
 const navItems = [
@@ -25,15 +25,26 @@ export function Nav() {
     navButton.innerText = navItem.name;
 
     if (navItem.class == "login") {
-      navButton.classList.add(navItem.class);
+
+      let loggedUser = sessionStorage.getItem('userName');
+
+      if(loggedUser){
+        navButton.innerText = 'Hi, ' + loggedUser + ' 👋';
+        navButton.classList.add('logged-user');
+
+        navButton.addEventListener('click', () => {
+          console.log('Pokaz dropdown menu');
+        })
+      }else{
+        navButton.classList.add(navItem.class);
 
       navButton.addEventListener("click", () => {
         const main = document.querySelector("main");
         main.append(Login());
         document.body.style.overflow = "hidden";
       });
+      }
 
-   
     }else{
       navButton.addEventListener("click", () => {
         const navigateEvent = new CustomEvent("navigate", {

@@ -71,6 +71,16 @@ nav {
     }
   }
 
+  .logged-user{
+    border: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border: none;
+    }
+  }
+
   .logo {
     position: absolute;
     left: 0;
