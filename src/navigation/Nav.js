@@ -4,6 +4,7 @@ import { RoomsList } from "../views/RoomsList";
 import { Cart } from "../views/Cart";
 import { TreatmentList } from "../views/TreatmentsList";
 import { Login } from "../views/Login";
+import { DropdownMenu } from "../views/DropdownMenu";
 
 
 // wytwarzamy nawigacje na podstawie tej tablicy
@@ -33,7 +34,7 @@ export function Nav() {
         navButton.classList.add('logged-user');
 
         navButton.addEventListener('click', () => {
-          console.log('Pokaz dropdown menu');
+          DropdownMenu();
         })
       }else{
         navButton.classList.add(navItem.class);
