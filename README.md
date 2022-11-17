@@ -31,3 +31,7 @@ Project is: in progress
 ## Demo
 
 ![This is an image](./src/assets/Desktop%20-%201.png)
+![This is an image](./src/assets/Desktop%20-%202.png)
+![This is an image](./src/assets/Desktop%20-%203.png)
+![This is an image](./src/assets/Desktop%20-%204.png)
+![This is an image](./src/assets/Desktop%20-%207.png)
