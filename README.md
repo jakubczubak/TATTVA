@@ -1,70 +1,33 @@
-# IT SPA
+# TATTVA
 
-Projekt polega na napisaniu aplikacji Single Page Application dla ośrodka SPA dedykowanego programistom.
+Single Page Application for a SPA center dedicated to programmers.
 
-Aplikacja powinna umożliwiać: 
+Basic functionalities:
 
-- Przeglądanie dostępnych zabiegów
-- Dodawanie wybranych zabiegów do koszyka
-- Wybór daty przyjazdu i wyjazdu oraz pokoju  
-- Rejestrację użytkownika (opcjonalnie)
-- Logowanie użytkownika (opcjonalnie)
-- Podsumowanie składanego zamówienia
+- Browse available treatments
+- Adding selected treatments to the basket
+- Selection of arrival and departure date and room
+- User registration
+- User login
+- Summary of your order
 
-## Booking
+## Setup
 
-Stwórz komponent koszyka, który wyświetla podsumowanie zamówienia.
-Koszyk powinien też umożliwiać nanoszenie poprawek do zamówienia.`
-Użytkownik nie może wybrać daty przyjazdu wcześniejszej niż bieżąca.
-Wybrana data wyjazdu nie może być dalsza niż rok od daty przyjazdu.
+    npm install
+    npm run start:db
+    npm run start:app
 
-## Rejestracja
+## Technologies
 
-Stwórz komponent rejestracji użytkownika z opcjonalnym miernikiem siły hasła.
-Rejestracja polega na zapisaniu danych użytkownika (e-mail i hasła) w pliku `database.json`.
-Nie powinna być możliwa rejestracja użytkownika o identycznym adresie e-mail.
-
-## Logowanie
-
-Stwórz komponent logowania użytkownika, który opcjonalnie będzie wyświetlał avatar użytkownika.
-Logowanie polega na porównaniu podanych przez użytkownika danych (e-mail i hasła) z tymi w pliku `database.json`.
-
-## Pokoje
-
-Bazę przykładowych pokoi w ośrodku IT SPA znajdziesz w pliku `database.json`.
-Możesz dowolnie zmienić istniejące pokoje lub dodać swoje własne. 
-
-## Zabiegi 
-
-Bazę przykładowych zabiegów ośrodka IT SPA znajdziesz w pliku `database.json`.
-Możesz dowolnie zmienić istniejące zabiegi lub dodać swoje własne. 
-
-## Koszyk
-
-Stwórz komponent koszyka, który po najechaniu myszką będzie wyświetlał dodane pokoje i zabiegi.
-Koszyk musi przetrwać przeładowanie strony, dlatego spróbuj wykorzystać ciasteczka (Cookies).
-
-## Technologie
-
-- HTML, Bootstrap
+- HTML
 - CSS, Sass, LESS
-- JavaScript, jQuery
-- Node, Express
+- JavaScript ECMAScript 6
+- Parcel
 
-Postaraj się korzystać z ECMAScript 6.
+## Project Status
 
-Do interakcji z serwerem bazy danych wykorzystaj `fetch`.
-Jeśli lubisz eksperymenty, zainstaluj pakiet `axios`.
+Project is: in progress
 
-## Ocena
+## Demo
 
-Zamieść gotowy projekt na swoim GitHubie, a następnie prześlij link do prowadzącego.
-
-## Przykłady
-
-Strony, którymi możesz się inspirować: 
-
-- afrodyta-spa.pl
-- bukowypark.pl
-- hotelczarnypotok.pl
-- hotelniemcza.pl
+![This is an image](./src/assets/Desktop%20-%201.png)
