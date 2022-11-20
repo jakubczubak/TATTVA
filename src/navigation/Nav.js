@@ -34,9 +34,12 @@ export function Nav() {
 
         navButton.addEventListener("click", () => {
           const loggedUserBtn = document.querySelector(".logged-user");
-          loggedUserBtn.append(DropdownMenu());
-          const container = document.querySelector(".drop-down-menu");
-          container.focus();
+
+          if (loggedUserBtn) {
+            loggedUserBtn.append(DropdownMenu());
+            const container = document.querySelector(".drop-down-menu");
+            container.focus();
+          }
         });
       } else {
         navButton.classList.add(navItem.class);
