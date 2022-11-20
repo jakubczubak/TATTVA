@@ -140,8 +140,23 @@ nav {
 
   .quick-summary {
     position: absolute;
-    left: 10px;
-    top: 100px;
+    left: -220px;
+    top: 80px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #fff;
+    border-radius: 16px;
+    width: 300px;
+    padding: 20px;
+
+    h3 {
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .items-container {
+      ul {
+        list-style: none;
+      }
+    }
   }
 }
 

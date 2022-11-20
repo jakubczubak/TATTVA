@@ -11,9 +11,9 @@ export function QuickSummary() {
 
     li.innerHTML = ` 
     <div>
+    <p>${cartEntry.quantity}x</p>
     <p>${cartEntry.item.name}</p>
-    <p>${cartEntry.quantity}</p>
-    <p>${cartEntry.item.price.toFixed(2)}</p>
+    <p>${cartEntry.item.price.toFixed(2)} PLN</p>
     </div>
         
         `;
@@ -23,15 +23,18 @@ export function QuickSummary() {
 
   ul.append(...lis);
 
+  const total = document.createElement("p");
+  total.innerHTML = `Total: ${cartManager.getTotal()} PLN`;
+
   summary.innerHTML = `
-    <h3>Twój koszyk</h3>
+    <h3>Cart summary</h3>
     <div class='items-container'>
 
     </div>
-    <Button>Go to the cart</Button>
     `;
 
   summary.querySelector(".items-container").append(ul);
+  summary.append(total);
 
   return summary;
 }

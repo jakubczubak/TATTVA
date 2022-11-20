@@ -86,10 +86,6 @@ export function Nav() {
       navButton.addEventListener("mouseleave", () => {
         navButton.querySelector(".quick-summary").remove();
       });
-
-      navButton.addEventListener("click", () => {
-        navButton.querySelector(".quick-summary").remove();
-      });
     }
 
     return navButton;
