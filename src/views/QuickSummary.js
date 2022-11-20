@@ -26,13 +26,12 @@ export function QuickSummary() {
   summary.innerHTML = `
     <h3>Twój koszyk</h3>
     <div class='items-container'>
-    
+
     </div>
     <Button>Go to the cart</Button>
     `;
 
-  const itemsContainer = summary.querySelector("items-container");
-  itemsContainer.append(ul);
+  summary.querySelector(".items-container").append(ul);
 
   return summary;
 }

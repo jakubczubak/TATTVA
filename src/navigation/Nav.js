@@ -5,6 +5,7 @@ import { Cart } from "../views/Cart";
 import { TreatmentList } from "../views/TreatmentsList";
 import { Login } from "../views/Login";
 import { DropdownMenu } from "../views/DropdownMenu";
+import { QuickSummary } from "../views/QuickSummary";
 
 // wytwarzamy nawigacje na podstawie tej tablicy
 const navItems = [
@@ -68,6 +69,20 @@ export function Nav() {
       <img class="date-nights-img" src=${require("../assets/Bag_alt_light.svg")} alt="Shop bag icon"/>
       `;
       navButton.classList.add("shopping-cart");
+
+      navButton.addEventListener("mouseover", () => {
+        const isExist = navButton.querySelector(".quick-summary");
+
+        if (isExist) {
+          //do nothing
+        } else {
+          navButton.append(QuickSummary());
+        }
+      });
+
+      navButton.addEventListener("mouseleave", () => {
+        navButton.querySelector(".quick-summary").remove();
+      });
     }
 
     return navButton;
