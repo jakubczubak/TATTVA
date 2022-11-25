@@ -24,6 +24,7 @@ export function QuickSummary() {
   ul.append(...lis);
 
   const total = document.createElement("p");
+  total.classList.add('quick-summary-total')
   total.innerHTML = `Total: ${cartManager.getTotal()} PLN`;
 
   summary.innerHTML = `
