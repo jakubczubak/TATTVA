@@ -117,11 +117,17 @@ nav {
     position: absolute;
     left: 0;
     top: -25px;
+    opacity: 1;
+    transition: 0.1s all ease-in-out;
 
     &:active,
     &:focus,
     &:hover {
       border: none;
+    }
+
+    @media (max-width: 900px) {
+      opacity: 0;
     }
   }
 
@@ -271,7 +277,7 @@ main {
         flex-wrap: wrap;
 
         .item {
-          width: 33%;
+          width: 170px;
         }
       }
     }
@@ -734,16 +740,20 @@ main {
   margin: 50px 0;
   border-radius: 40px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex-wrap: wrap;
+  align-items: center;
 
   .date-check-in {
     display: flex;
     align-items: center;
     gap: 5px;
     position: relative;
+    width: 160px;
+    margin: 16px 0;
 
     header {
       position: absolute;
-      top: -18px;
+      top: -30px;
       left: 0;
       color: rgba(30, 30, 30, 0.6);
       font-size: 14px;
@@ -766,6 +776,8 @@ main {
     align-items: center;
     gap: 5px;
     position: relative;
+    width: 160px;
+    margin: 16px 0;
 
     .date-nights-img {
       cursor: pointer;
@@ -785,6 +797,8 @@ main {
     position: relative;
     font-size: 16px;
     font-family: "monospace", "Arial", sans-serif;
+    width: 160px;
+    margin: 16px 0;
 
     header {
       position: absolute;
@@ -811,6 +825,8 @@ main {
     align-items: center;
     gap: 5px;
     position: relative;
+    width: 160px;
+    margin: 16px 0;
 
     .date-guest-img {
       cursor: pointer;
