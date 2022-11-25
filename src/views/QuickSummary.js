@@ -6,25 +6,41 @@ export function QuickSummary() {
 
   const ul = document.createElement("ul");
 
-  const lis = cartManager.getAllItems().map((cartEntry) => {
+  let qucikSummaryItemsLength = cartManager.getAllItems().length;
+
+  if (qucikSummaryItemsLength > 0) {
+    const lis = cartManager.getAllItems().map((cartEntry) => {
+      const li = document.createElement("li");
+
+      li.innerHTML = ` 
+      <div>
+      <p>${cartEntry.quantity}x</p>
+      <p>${cartEntry.item.name}</p>
+      <p>${cartEntry.item.price.toFixed(2)} PLN</p>
+      </div>
+          
+          `;
+
+      return li;
+    });
+
+    ul.append(...lis);
+  } else {
     const li = document.createElement("li");
 
     li.innerHTML = ` 
-    <div>
-    <p>${cartEntry.quantity}x</p>
-    <p>${cartEntry.item.name}</p>
-    <p>${cartEntry.item.price.toFixed(2)} PLN</p>
+    <div class='quick-summary-empty'>
+    <p>Empty cart!</p>
+
     </div>
         
         `;
 
-    return li;
-  });
-
-  ul.append(...lis);
+    ul.append(li);
+  }
 
   const total = document.createElement("p");
-  total.classList.add('quick-summary-total')
+  total.classList.add("quick-summary-total");
   total.innerHTML = `Total: ${cartManager.getTotal()} PLN`;
 
   summary.innerHTML = `

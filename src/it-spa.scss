@@ -161,30 +161,30 @@ nav {
         height: 270px;
         padding: 15px;
 
-
-        li{
+        li {
           border-bottom: 1px solid $Violet;
-          padding:20px;
+          padding: 20px;
           font-size: 14px;
           color: rgba(0, 0, 0, 0.6);
-       
         }
 
-        li div{
+        li div {
           display: flex;
           justify-content: space-between;
         }
-     
+
+        li div.quick-summary-empty {
+          display: flex;
+          justify-content: center;
+        }
       }
 
-      ul li:nth-last-of-type(1){
-        border-bottom: none
+      ul li:nth-last-of-type(1) {
+        border-bottom: none;
       }
     }
 
-
-
-    .quick-summary-total{
+    .quick-summary-total {
       position: absolute;
       bottom: 16px;
       width: 410px;
